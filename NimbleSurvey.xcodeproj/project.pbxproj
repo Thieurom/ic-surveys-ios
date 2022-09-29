@@ -208,6 +208,7 @@
 			buildPhases = (
 				4D0E283C28EA8EC700D53C91 /* SwiftGen */,
 				4D7753E828E3018A00C933FC /* Sources */,
+				4D77547528E589A400C933FC /* SwiftLint */,
 				4D7753E928E3018A00C933FC /* Frameworks */,
 				4D7753EA28E3018A00C933FC /* Resources */,
 			);
@@ -329,7 +330,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4D0E283C28EA8EC700D53C91 /* SwiftGen */ = {
+		4D77547528E589A400C933FC /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -338,7 +339,7 @@
 			);
 			inputPaths = (
 			);
-			name = SwiftGen;
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -346,7 +347,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null && [ -z \"$CI\" ]; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -22,4 +22,14 @@ class Fastfile: LaneFile {
             xcodebuildFormatter: Parameterfile.xcodebuildFormatter
         )
     }
+
+    func lintLane() {
+        desc("Run SwifLint")
+
+        swiftlint(
+            strict: true,
+            ignoreExitStatus: true,
+            raiseIfSwiftlintError: true
+        )
+    }
 }
