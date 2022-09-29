@@ -12,6 +12,8 @@ class ExampleTests: XCTestCase {
     var app: XCUIApplication!
 
     override func setUp() {
+        super.setUp()
+
         continueAfterFailure = false
         app = XCUIApplication()
         app.launch()
@@ -19,6 +21,7 @@ class ExampleTests: XCTestCase {
 
     override func tearDown() {
         app.terminate()
+        super.tearDown()
     }
 
     // TODO: Remove this test function
