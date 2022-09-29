@@ -28,6 +28,29 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+<<<<<<< HEAD
+=======
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4D7753FB28E3018B00C933FC"
+               BuildableName = "NimbleSurveyTests.xctest"
+               BlueprintName = "NimbleSurveyTests"
+               ReferencedContainer = "container:NimbleSurvey.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4D77540528E3018B00C933FC"
+               BuildableName = "NimbleSurveyUITests.xctest"
+               BlueprintName = "NimbleSurveyUITests"
+               ReferencedContainer = "container:NimbleSurvey.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+>>>>>>> 27e4ff0 ([#2] Setup `fastlane` to run tests on local)
       </Testables>
    </TestAction>
    <LaunchAction
