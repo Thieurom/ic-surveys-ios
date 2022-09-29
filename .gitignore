@@ -1,3 +1,16 @@
+# Mac
 .DS_Store
+
+# Xcode
 xcuserdata/
+
+# Generated from code generators
 NimbleSurvey/Generated/*.swift
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/screenshots/screenshots.html
+fastlane/test_output
+fastlane/swift/FastlaneSwiftRunner
