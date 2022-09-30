@@ -17,9 +17,11 @@ class Fastfile: LaneFile {
             scheme: .userDefined(Parameterfile.scheme),
             devices: .userDefined(Parameterfile.devices),
             onlyTesting: [Parameterfile.testsTarget, Parameterfile.uiTestsTarget],
+            clean: true,
             outputDirectory: Parameterfile.outputDirectory,
             outputTypes: Parameterfile.outputTypes,
-            xcodebuildFormatter: Parameterfile.xcodebuildFormatter
+            xcodebuildFormatter: Parameterfile.xcodebuildFormatter,
+            xcargs: .userDefined("CI=true")
         )
     }
 
