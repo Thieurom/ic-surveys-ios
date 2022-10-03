@@ -19,6 +19,7 @@ struct OverlayView: View {
 }
 
 struct LinearGradientView_Previews: PreviewProvider {
+
     static var previews: some View {
         OverlayView()
     }
