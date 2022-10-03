@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0E285028EC2E7600D53C91 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E284F28EC2E7600D53C91 /* Assets.swift */; };
 		4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */; };
 		4D7753F428E3018A00C933FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7753F328E3018A00C933FC /* Images.xcassets */; };
 		4D7753F728E3018A00C933FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7753F628E3018A00C933FC /* Preview Assets.xcassets */; };
 		4D77545E28E4226000C933FC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77545D28E4226000C933FC /* SplashView.swift */; };
 		4D77546028E4297F00C933FC /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77545F28E4297F00C933FC /* OverlayView.swift */; };
 		4D77546528E4407400C933FC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D77546428E4407400C933FC /* Colors.xcassets */; };
-		4D77546A28E4418700C933FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77546928E4418700C933FC /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D0E284F28EC2E7600D53C91 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		4D7753EC28E3018A00C933FC /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleSurveyApp.swift; sourceTree = "<group>"; };
 		4D7753F328E3018A00C933FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		4D77545D28E4226000C933FC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		4D77545F28E4297F00C933FC /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		4D77546428E4407400C933FC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		4D77546928E4418700C933FC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 		4D77546828E4418700C933FC /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				4D77546928E4418700C933FC /* Assets.swift */,
+				4D0E284F28EC2E7600D53C91 /* Assets.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -182,6 +182,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D77541028E3018B00C933FC /* Build configuration list for PBXNativeTarget "NimbleSurvey" */;
 			buildPhases = (
+				4D0E283C28EA8EC700D53C91 /* SwiftGen */,
 				4D7753E828E3018A00C933FC /* Sources */,
 				4D7753E928E3018A00C933FC /* Frameworks */,
 				4D7753EA28E3018A00C933FC /* Resources */,
@@ -301,6 +302,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D0E283C28EA8EC700D53C91 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/NimbleSurvey/Generated/Assets.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4D7753E828E3018A00C933FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -308,7 +331,7 @@
 			files = (
 				4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */,
 				4D77545E28E4226000C933FC /* SplashView.swift in Sources */,
-				4D77546A28E4418700C933FC /* Assets.swift in Sources */,
+				4D0E285028EC2E7600D53C91 /* Assets.swift in Sources */,
 				4D77546028E4297F00C933FC /* OverlayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
