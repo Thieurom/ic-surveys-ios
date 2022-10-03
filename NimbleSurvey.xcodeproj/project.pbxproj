@@ -14,7 +14,6 @@
 		4D77545E28E4226000C933FC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77545D28E4226000C933FC /* SplashView.swift */; };
 		4D77546028E4297F00C933FC /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77545F28E4297F00C933FC /* OverlayView.swift */; };
 		4D77546528E4407400C933FC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D77546428E4407400C933FC /* Colors.xcassets */; };
-		4D77546A28E4418700C933FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77546928E4418700C933FC /* Assets.swift */; };
 		4D77546F28E5581C00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77546E28E5581C00C933FC /* ExampleTests.swift */; };
 		4D77547228E5588F00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77547128E5588F00C933FC /* ExampleTests.swift */; };
 /* End PBXBuildFile section */
@@ -47,7 +46,6 @@
 		4D77545D28E4226000C933FC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		4D77545F28E4297F00C933FC /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		4D77546428E4407400C933FC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		4D77546928E4418700C933FC /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		4D77546E28E5581C00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		4D77547128E5588F00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,7 +204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D77541028E3018B00C933FC /* Build configuration list for PBXNativeTarget "NimbleSurvey" */;
 			buildPhases = (
-				4D0E283C28EA8EC700D53C91 /* SwiftGen */,
+				4D0E283F28EA940400D53C91 /* SwiftGen */,
 				4D7753E828E3018A00C933FC /* Sources */,
 				4D77547528E589A400C933FC /* SwiftLint */,
 				4D7753E928E3018A00C933FC /* Frameworks */,
@@ -330,6 +328,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D0E283F28EA940400D53C91 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
 		4D77547528E589A400C933FC /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
