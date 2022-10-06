@@ -1,7 +1,6 @@
 bootstrap:
 	brew update
-	brew doctor
-	# Virtual macOS environments of GitHub Actions might have SwiftLint preinstalled
-	rm '/usr/local/bin/swiftlint'
 	brew bundle install
+	# Virtual macOS environments of GitHub Actions might have SwiftLint preinstalled
+	which swiftlint &>/dev/null || brew bundle install swiftlint
 	bundle install
