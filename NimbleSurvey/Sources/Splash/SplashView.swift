@@ -21,6 +21,7 @@ struct SplashView: View {
 
             Image(Asset.Images.logo.name)
                 .frame(maxWidth: .infinity)
+                .opacity(showingLogo ? 1.0 : 0.0)
         }
         .onAppear {
             withAnimation(.easeInOut(duration: 1.0).delay(1.0)) {
