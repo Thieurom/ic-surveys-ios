@@ -14,3 +14,10 @@ fastlane/screenshots/**/*.png
 fastlane/screenshots/screenshots.html
 fastlane/test_output
 fastlane/FastlaneRunner
+
+# Homebrew
+Brewfile.lock.json
+
+# Bundler
+/.bundle
+/vendor/bundle
