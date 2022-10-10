@@ -73,6 +73,7 @@ extension Fastfile {
             exportMethod: .userDefined(signingType.rawValue),
             buildPath: .userDefined(Parameterfile.buildPath),
             derivedDataPath: .userDefined(Parameterfile.derivedDataPath),
+            xcargs: .userDefined(Parameterfile.buildArguments),
             xcodebuildFormatter: Parameterfile.xcodebuildFormatter
         )
     }

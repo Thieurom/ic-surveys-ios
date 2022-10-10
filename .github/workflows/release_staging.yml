@@ -6,8 +6,9 @@ on:
       - main
 
 jobs:
-  distribute_to_firebase:
+  release_staging:
     runs-on: macos-12
+    environment: Staging
     steps:
     - name: Cancel Previous Runs
       uses: styfle/cancel-workflow-action@0.5.0
