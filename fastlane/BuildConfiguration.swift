@@ -1,23 +1,25 @@
 //
-//  BuildEnvironment.swift
+//  BuildConfiguration.swift
 //  FastlaneRunner
 //
 //  Created by Doan Thieu on 09/10/2022.
 //  Copyright © 2022 Joshua Liebowitz. All rights reserved.
 //
 
-enum BuildEnvironment: String {
+import Foundation
+
+enum BuildConfiguration: String {
 
     case staging
     case production
 }
 
-extension BuildEnvironment: CustomStringConvertible {
+extension BuildConfiguration: CustomStringConvertible {
 
     var description: String { rawValue }
 }
 
-extension BuildEnvironment {
+extension BuildConfiguration {
 
     var scheme: String {
         switch self {
@@ -32,4 +34,6 @@ extension BuildEnvironment {
         case .production: return Parameterfile.projectName
         }
     }
+
+    var firebaseAppId: String { Environment.firebaseAppId() }
 }

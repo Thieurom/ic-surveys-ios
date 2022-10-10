@@ -20,4 +20,5 @@ enum Parameterfile {
     static let buildArguments = "CI=true"
     static let buildPath = "./Build"
     static let derivedDataPath = "./DerivedData"
+    static let testerGroups = "Nimble"
 }

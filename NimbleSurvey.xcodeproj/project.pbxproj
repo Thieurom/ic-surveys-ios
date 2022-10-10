@@ -16,6 +16,7 @@
 		4D77546528E4407400C933FC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D77546428E4407400C933FC /* Colors.xcassets */; };
 		4D77546F28E5581C00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77546E28E5581C00C933FC /* ExampleTests.swift */; };
 		4D77547228E5588F00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77547128E5588F00C933FC /* ExampleTests.swift */; };
+		4D9F895428F3D15900C7185D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D9F895328F3D15900C7185D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		4D77546428E4407400C933FC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4D77546E28E5581C00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		4D77547128E5588F00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
+		4D9F895328F3D15900C7185D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		4D27E51628F014D7003E72B8 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				4D9F895728F3D19100C7185D /* Plists */,
 				4D27E51528F014CE003E72B8 /* XCConfigs */,
 			);
 			path = Configurations;
@@ -221,6 +224,30 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		4D9F895528F3D16900C7185D /* GoogleService */ = {
+			isa = PBXGroup;
+			children = (
+				4D9F895628F3D18700C7185D /* Staging */,
+			);
+			path = GoogleService;
+			sourceTree = "<group>";
+		};
+		4D9F895628F3D18700C7185D /* Staging */ = {
+			isa = PBXGroup;
+			children = (
+				4D9F895328F3D15900C7185D /* GoogleService-Info.plist */,
+			);
+			path = Staging;
+			sourceTree = "<group>";
+		};
+		4D9F895728F3D19100C7185D /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				4D9F895528F3D16900C7185D /* GoogleService */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +358,7 @@
 			files = (
 				4D77546528E4407400C933FC /* Colors.xcassets in Resources */,
 				4D7753F728E3018A00C933FC /* Preview Assets.xcassets in Resources */,
+				4D9F895428F3D15900C7185D /* GoogleService-Info.plist in Resources */,
 				4D7753F428E3018A00C933FC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

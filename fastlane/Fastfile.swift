@@ -14,7 +14,7 @@ class Fastfile: LaneFile {
         desc("Build and tests")
 
         runTests(
-            scheme: .userDefined(BuildEnvironment.staging.scheme),
+            scheme: .userDefined(BuildConfiguration.staging.scheme),
             devices: .userDefined(Parameterfile.devices),
             onlyTesting: [Parameterfile.testsTarget, Parameterfile.uiTestsTarget],
             clean: true,
@@ -38,7 +38,14 @@ class Fastfile: LaneFile {
     func buildStagingLane() {
         desc("Build app for staging")
 
-        buildApp(environment: .staging, signingType: .adHoc)
+        buildApp(configuration: .staging, signingType: .adHoc)
+    }
+
+    func distributeToFirebaseStagingLane() {
+        desc("Distribute app to Firebase staging")
+
+        buildApp(configuration: .staging, signingType: .adHoc)
+        distributeToFirebase(configuration: .staging, releaseNotes: "")
     }
 }
 
@@ -46,18 +53,27 @@ class Fastfile: LaneFile {
 
 extension Fastfile {
 
-    private func buildApp(environment: BuildEnvironment, signingType: SigningType) {
+    private func buildApp(configuration: BuildConfiguration, signingType: SigningType) {
         FastlaneRunner.buildApp(
-            scheme: .userDefined(environment.scheme),
+            scheme: .userDefined(configuration.scheme),
             clean: .userDefined(true),
             outputDirectory: Parameterfile.buildPath,
-            outputName: .userDefined(environment.outputName),
+            outputName: .userDefined(configuration.outputName),
             silent: .userDefined(true),
             includeSymbols: .userDefined(true),
             exportMethod: .userDefined(signingType.rawValue),
             buildPath: .userDefined(Parameterfile.buildPath),
             derivedDataPath: .userDefined(Parameterfile.derivedDataPath),
             xcodebuildFormatter: Parameterfile.xcodebuildFormatter
+        )
+    }
+
+    private func distributeToFirebase(configuration: BuildConfiguration, releaseNotes: String? = nil) {
+        firebaseAppDistribution(
+            app: .userDefined(configuration.firebaseAppId),
+            groups: .userDefined(Parameterfile.testerGroups),
+            releaseNotes: .userDefined(releaseNotes),
+            firebaseCliToken: .userDefined(Secret.firebaseCLIToken)
         )
     }
 }
