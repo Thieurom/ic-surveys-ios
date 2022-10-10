@@ -44,8 +44,17 @@ class Fastfile: LaneFile {
     func distributeToFirebaseStagingLane() {
         desc("Distribute app to Firebase staging")
 
+        bumpBuildNumber()
         buildApp(configuration: .staging, signingType: .adHoc)
         distributeToFirebase(configuration: .staging, releaseNotes: "")
+        cleanUpBuildLane()
+    }
+
+    func cleanUpBuildLane() {
+        desc("Clean up build artifacts")
+
+        clearDerivedData(derivedDataPath: Parameterfile.derivedDataPath)
+        try? FileManager.default.removeItem(atPath: Parameterfile.buildPath)
     }
 }
 
@@ -75,5 +84,9 @@ extension Fastfile {
             releaseNotes: .userDefined(releaseNotes),
             firebaseCliToken: .userDefined(Secret.firebaseCLIToken)
         )
+    }
+
+    private func bumpBuildNumber() {
+        incrementBuildNumber(buildNumber: .userDefined(String(numberOfCommits())))
     }
 }
