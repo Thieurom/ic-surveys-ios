@@ -1,0 +1,39 @@
+name: Pull request review
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+
+jobs:
+  review_pull_request:
+    runs-on: macos-12
+    steps:
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.5.0
+      with:
+        access_token: ${{ github.token }}
+
+    - name: Checkout the project
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Cache bundle gems
+      id: bundlerCache
+      uses: actions/cache@v3
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Bootstrap the project
+      run: make bootstrap
+
+    - name: Build and test
+      run: bundle exec fastlane tests
+      env:
+        CI: true
+
+    - name: Run swiftlint
+      run: bundle exec fastlane lint
