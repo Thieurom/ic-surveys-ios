@@ -53,6 +53,7 @@
 		4D77546428E4407400C933FC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4D77546E28E5581C00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		4D77547128E5588F00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
+		4D8DAF8F28F7B573005CB41F /* SurveyClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SurveyClient; path = NimbleSurvey/SurveyClient; sourceTree = "<group>"; };
 		4D9F895328F3D15900C7185D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +105,7 @@
 		4D7753E328E3018A00C933FC = {
 			isa = PBXGroup;
 			children = (
+				4D8DAF8F28F7B573005CB41F /* SurveyClient */,
 				4D7753EE28E3018A00C933FC /* NimbleSurvey */,
 				4D7753FF28E3018B00C933FC /* NimbleSurveyTests */,
 				4D77540928E3018B00C933FC /* NimbleSurveyUITests */,
