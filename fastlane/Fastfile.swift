@@ -13,16 +13,9 @@ class Fastfile: LaneFile {
     func testsLane() {
         desc("Build and tests")
 
-        runTests(
-            scheme: .userDefined(BuildConfiguration.staging.scheme),
-            devices: .userDefined(Parameterfile.devices),
-            onlyTesting: [Parameterfile.testsTarget, Parameterfile.uiTestsTarget],
-            clean: true,
-            outputDirectory: Parameterfile.outputDirectory,
-            outputTypes: Parameterfile.outputTypes,
-            xcodebuildFormatter: Parameterfile.xcodebuildFormatter,
-            xcargs: .userDefined(Parameterfile.buildArguments)
-        )
+        for module in [Module.app(.staging), Module.surveyClient] {
+            test(module: module)
+        }
     }
 
     func lintLane() {
@@ -30,7 +23,7 @@ class Fastfile: LaneFile {
 
         swiftlint(
             strict: true,
-            ignoreExitStatus: true,
+            ignoreExitStatus: false,
             raiseIfSwiftlintError: true
         )
     }
@@ -62,9 +55,25 @@ class Fastfile: LaneFile {
 
 extension Fastfile {
 
+    private func test(module: Module) {
+        runTests(
+            packagePath: .userDefined(module.packagePath),
+            scheme: .userDefined(module.scheme),
+            devices: .userDefined(Parameterfile.devices),
+            onlyTesting: module.testsTargets,
+            clean: true,
+            outputDirectory: Parameterfile.outputDirectory,
+            outputTypes: Parameterfile.outputTypes,
+            xcodebuildFormatter: Parameterfile.xcodebuildFormatter,
+            derivedDataPath: .userDefined(Parameterfile.derivedDataPath),
+            xcargs: .userDefined(Parameterfile.buildArguments),
+            disablePackageAutomaticUpdates: true
+        )
+    }
+
     private func buildApp(configuration: BuildConfiguration, signingType: SigningType) {
         FastlaneRunner.buildApp(
-            scheme: .userDefined(configuration.scheme),
+            scheme: .userDefined(Module.app(configuration).scheme),
             clean: .userDefined(true),
             outputDirectory: Parameterfile.buildPath,
             outputName: .userDefined(configuration.outputName),
