@@ -75,6 +75,7 @@ extension SurveyClient {
                 let statusCode = ($0.response as? HTTPURLResponse)?.statusCode
                 // swiftlint:disable force_unwrapping
                 let codeString = statusCode != nil ? "\(statusCode!) " : ""
+                // swiftlint:disable:next line_length
                 print("[SurveyClient][INFO] Response: \(request)\n\(codeString)\(String(decoding: $0.data, as: UTF8.self))")
                 #endif
             })
