@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D0E285028EC2E7600D53C91 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E284F28EC2E7600D53C91 /* Assets.swift */; };
+		4D298E592907C24A00BEC5E8 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E582907C24A00BEC5E8 /* Login */; };
 		4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */; };
 		4D7753F428E3018A00C933FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7753F328E3018A00C933FC /* Images.xcassets */; };
 		4D7753F728E3018A00C933FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7753F628E3018A00C933FC /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		4D27E51728F0159E003E72B8 /* DebugProduction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugProduction.xcconfig; sourceTree = "<group>"; };
 		4D27E51828F01BA8003E72B8 /* ReleaseStaging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseStaging.xcconfig; sourceTree = "<group>"; };
 		4D27E51928F01BB4003E72B8 /* ReleaseProduction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseProduction.xcconfig; sourceTree = "<group>"; };
+		4D298E562907BAAD00BEC5E8 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Login; path = NimbleSurvey/Login; sourceTree = "<group>"; };
 		4D7753EC28E3018A00C933FC /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleSurveyApp.swift; sourceTree = "<group>"; };
 		4D7753F328E3018A00C933FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D298E592907C24A00BEC5E8 /* Login in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,14 +105,23 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		4D298E572907C24A00BEC5E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4D7753E328E3018A00C933FC = {
 			isa = PBXGroup;
 			children = (
+				4D298E562907BAAD00BEC5E8 /* Login */,
 				4D8DAF8F28F7B573005CB41F /* SurveyClient */,
 				4D7753EE28E3018A00C933FC /* NimbleSurvey */,
 				4D7753FF28E3018B00C933FC /* NimbleSurveyTests */,
 				4D77540928E3018B00C933FC /* NimbleSurveyUITests */,
 				4D7753ED28E3018A00C933FC /* Products */,
+				4D298E572907C24A00BEC5E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,6 +280,9 @@
 			dependencies = (
 			);
 			name = NimbleSurvey;
+			packageProductDependencies = (
+				4D298E582907C24A00BEC5E8 /* Login */,
+			);
 			productName = NimbleSurvey;
 			productReference = 4D7753EC28E3018A00C933FC /* NimbleSurvey.app */;
 			productType = "com.apple.product-type.application";
@@ -1076,6 +1091,13 @@
 			defaultConfigurationName = "Release Production";
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D298E582907C24A00BEC5E8 /* Login */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Login;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D7753E428E3018A00C933FC /* Project object */;
 }
