@@ -9,16 +9,22 @@ let package = Package(
     products: [
         .library(
             name: "Login",
-            targets: ["Login"])
+            targets: ["Login"]
+        )
     ],
     dependencies: [
+        .package(name: "Styleguide", path: "../Styleguide")
     ],
     targets: [
         .target(
             name: "Login",
-            dependencies: []),
+            dependencies: [
+                .product(name: "Styleguide", package: "Styleguide")
+            ]
+        ),
         .testTarget(
             name: "LoginTests",
-            dependencies: ["Login"])
+            dependencies: ["Login"]
+        )
     ]
 )
