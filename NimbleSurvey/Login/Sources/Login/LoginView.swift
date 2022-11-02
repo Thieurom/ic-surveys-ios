@@ -6,48 +6,87 @@
 //  Created by Doan Thieu on 25/10/2022.
 //
 
+import Styleguide
 import SwiftUI
 
 public struct LoginView: View {
 
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showingForm = false
+    @State private var logoScale = 1.0
+    private let spacing: CGFloat = 40.0
 
     public var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Asset.Images.background.swiftUIImage
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .blur(radius: 24.0, opaque: true)
+                .overlay(OverlayView(colors: [.black.opacity(0.2), .black.opacity(1.0)]))
+                .ignoresSafeArea()
 
-            VStack(spacing: 20.0) {
-                TextField("", text: $email)
-                    .placeholder(when: email.isEmpty) {
-                        Text("Email")
-                            .padding(.horizontal, 12.0)
-                            .foregroundColor(Color.white.opacity(0.3))
+            VStack {
+                Spacer(minLength: spacing)
+
+                Asset.Images.logo.swiftUIImage
+                    .frame(maxHeight: .infinity)
+                    .scaleEffect(logoScale)
+                    .onAppear {
+                        withAnimation(.easeIn(duration: 0.5).delay(0.5)) {
+                            logoScale = 0.85
+                            showingForm = true
+                        }
                     }
-                    .textFieldStyle(FieldStyle())
 
-                SecureField("", text: $password)
-                    .placeholder(when: password.isEmpty) {
-                        Text("Password")
-                            .padding(.horizontal, 12.0)
-                            .foregroundColor(Color.white.opacity(0.3))
-                    }
-                    .textFieldStyle(FieldStyle())
+                if showingForm {
+                    form
+                        .frame(maxHeight: .infinity)
+                        .opacity(showingForm ? 1.0 : 0.0)
 
-                Button {} label: {
-                    Text("Log in")
-                        .fontWeight(.medium)
-                        .frame(maxWidth: .infinity, maxHeight: 56.0)
-                        .background(Color.white)
-                        .foregroundColor(.black)
-                        .cornerRadius(12.0)
+                    Spacer()
+                        .frame(maxHeight: .infinity)
                 }
+
+                Spacer(minLength: spacing)
             }
-            .padding(.horizontal, 24.0)
         }
     }
 
     public init() {}
+}
+
+extension LoginView {
+
+    private var form: some View {
+        VStack(spacing: 20.0) {
+            TextField("", text: $email)
+                .placeholder(when: email.isEmpty) {
+                    Text("Email")
+                        .padding(.horizontal, 12.0)
+                        .foregroundColor(Color.white.opacity(0.3))
+                }
+                .textFieldStyle(FieldStyle())
+
+            SecureField("", text: $password)
+                .placeholder(when: password.isEmpty) {
+                    Text("Password")
+                        .padding(.horizontal, 12.0)
+                        .foregroundColor(Color.white.opacity(0.3))
+                }
+                .textFieldStyle(FieldStyle())
+
+            Button {} label: {
+                Text("Log in")
+                    .fontWeight(.medium)
+                    .frame(maxWidth: .infinity, maxHeight: 56.0)
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .cornerRadius(12.0)
+            }
+        }
+        .padding(.horizontal, 24.0)
+    }
 }
 
 extension LoginView {

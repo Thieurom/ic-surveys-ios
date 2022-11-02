@@ -9,15 +9,19 @@ import SwiftUI
 
 public struct OverlayView: View {
 
+    let colors: [Color]
+
     public var body: some View {
         LinearGradient(
-            gradient: Gradient(colors: [.black.opacity(0.01), .black.opacity(0.8)]),
+            gradient: Gradient(colors: colors),
             startPoint: .top,
             endPoint: .bottom
         )
     }
 
-    public init() {}
+    public init(colors: [Color] = [.black.opacity(0.01), .black.opacity(0.8)]) {
+        self.colors = colors
+    }
 }
 
 struct OverlayView_Previews: PreviewProvider {
