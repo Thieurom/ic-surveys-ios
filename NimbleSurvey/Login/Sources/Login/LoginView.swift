@@ -69,15 +69,18 @@ extension LoginView {
             TextField("", text: $email)
                 .placeholder(when: email.isEmpty) {
                     Text("Email")
+                        .adaptiveFont(.neuzeitBook, size: 17.0)
                         .padding(.horizontal, 12.0)
                         .foregroundColor(Color.white.opacity(0.3))
                 }
                 .textFieldStyle(FieldStyle())
+                .keyboardType(.emailAddress)
                 .focused($emailInFocus)
 
             SecureField("", text: $password)
                 .placeholder(when: password.isEmpty) {
                     Text("Password")
+                        .adaptiveFont(.neuzeitBook, size: 17.0)
                         .padding(.horizontal, 12.0)
                         .foregroundColor(Color.white.opacity(0.3))
                 }
@@ -86,7 +89,7 @@ extension LoginView {
 
             Button {} label: {
                 Text("Log in")
-                    .fontWeight(.medium)
+                    .adaptiveFont(.neuzeitHeavy, size: 17.0)
                     .frame(maxWidth: .infinity, maxHeight: 56.0)
                     .background(Color.white)
                     .foregroundColor(.black)
@@ -112,6 +115,7 @@ extension LoginView {
                         .fill(Color.white.opacity(0.18))
                 )
                 .foregroundColor(.white)
+                .accentColor(.white)
         }
     }
 }

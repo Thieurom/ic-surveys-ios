@@ -7,6 +7,7 @@
 
 import Login
 import Splash
+import Styleguide
 import SwiftUI
 
 @main
@@ -29,5 +30,10 @@ struct NimbleSurveyApp: App {
                 }
             }
         }
+    }
+
+    init() {
+        Styleguide.registerFonts()
+        UITextField.appearance().keyboardAppearance = .dark
     }
 }
