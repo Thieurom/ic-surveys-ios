@@ -15,6 +15,8 @@ public struct LoginView: View {
     @State private var password: String = ""
     @State private var showingForm = false
     @State private var logoScale = 1.0
+    @FocusState private var emailInFocus: Bool
+    @FocusState private var passwordInFocus: Bool
     private let spacing: CGFloat = 40.0
 
     public var body: some View {
@@ -22,9 +24,13 @@ public struct LoginView: View {
             Asset.Images.background.swiftUIImage
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .blur(radius: 24.0, opaque: true)
-                .overlay(OverlayView(colors: [.black.opacity(0.2), .black.opacity(1.0)]))
+                .blur(radius: showingForm ? 24.0 : 0.0, opaque: true)
+                .overlay(OverlayView())
                 .ignoresSafeArea()
+                .onTapGesture {
+                    emailInFocus = false
+                    passwordInFocus = false
+                }
 
             VStack {
                 Spacer(minLength: spacing)
@@ -33,7 +39,7 @@ public struct LoginView: View {
                     .frame(maxHeight: .infinity)
                     .scaleEffect(logoScale)
                     .onAppear {
-                        withAnimation(.easeIn(duration: 0.5).delay(0.5)) {
+                        withAnimation(.easeIn(duration: 0.4).delay(0.5)) {
                             logoScale = 0.85
                             showingForm = true
                         }
@@ -67,6 +73,7 @@ extension LoginView {
                         .foregroundColor(Color.white.opacity(0.3))
                 }
                 .textFieldStyle(FieldStyle())
+                .focused($emailInFocus)
 
             SecureField("", text: $password)
                 .placeholder(when: password.isEmpty) {
@@ -75,6 +82,7 @@ extension LoginView {
                         .foregroundColor(Color.white.opacity(0.3))
                 }
                 .textFieldStyle(FieldStyle())
+                .focused($passwordInFocus)
 
             Button {} label: {
                 Text("Log in")

@@ -19,7 +19,7 @@ public struct OverlayView: View {
         )
     }
 
-    public init(colors: [Color] = [.black.opacity(0.01), .black.opacity(0.8)]) {
+    public init(colors: [Color] = [.black.opacity(0.1), .black.opacity(1.0)]) {
         self.colors = colors
     }
 }
