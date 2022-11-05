@@ -10,7 +10,6 @@ import SwiftUI
 
 public typealias FontName = String
 
-// swiftlint:disable file_types_order
 extension FontName {
 
     public static let neuzeitBook = "NeuzeitSLTStd-Book"

@@ -6,19 +6,24 @@
 //
 
 import Styleguide
+import SurveyClientType
 import SwiftUI
 
 public struct LoginView: View {
 
-    @State private var email: String = ""
-    @State private var password: String = ""
     @State private var showingForm = false
     @State private var logoScale = 1.0
     @State private var bottomPadding: CGFloat = .zero
+    @State private var isShowingSpinner = false
+    @State private var isShowingLoginResult = false
+    @State private var loginResultMessage: String?
     @FocusState private var emailInFocus: Bool
     @FocusState private var passwordInFocus: Bool
+    @ObservedObject private var viewModel: LoginViewModel
 
-    public init() {}
+    public init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+    }
 
     public var body: some View {
         GeometryReader { _ in
@@ -27,31 +32,39 @@ public struct LoginView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .scaleEffect(logoScale)
 
-                if showingForm {
-                    form
-                        .frame(maxHeight: .infinity)
-                        .opacity(showingForm ? 1.0 : 0.0)
+                form.renderedIf(showingForm)
+                    .frame(maxHeight: .infinity)
+                    .opacity(showingForm ? 1.0 : 0.0)
 
-                    if bottomPadding == .zero {
-                        Spacer()
-                            .frame(maxHeight: .infinity)
-                    }
-                }
+                Spacer().frame(maxHeight: .infinity)
+                    .renderedIf(showingForm && bottomPadding == .zero)
             }
+            .padding(.bottom, bottomPadding)
             .onKeyboardUpdate { keyboardHeight in
                 withAnimation(.easeIn(duration: 0.25)) {
                     bottomPadding = keyboardHeight
                 }
             }
-            .padding(.bottom, bottomPadding)
+            .spinner(isPresented: $isShowingSpinner)
+            .onReceive(viewModel.$isLoading) { isShowingSpinner = $0 }
+            .onReceive(viewModel.$loginResult.dropFirst()) {
+                isShowingLoginResult = true
+                loginResultMessage = $0
+            }
+            .alert(
+                "Login",
+                isPresented: $isShowingLoginResult,
+                presenting: loginResultMessage,
+                actions: { _ in },
+                message: { _ in
+                    if let loginResultMessage = loginResultMessage {
+                        Text(loginResultMessage)
+                    }
+                }
+            )
         }
         .background(
-            Asset.Images.background.swiftUIImage
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .blur(radius: showingForm ? 24.0 : 0.0, opaque: true)
-                .overlay(OverlayView())
-                .ignoresSafeArea()
+            background
                 .onTapGesture {
                     emailInFocus = false
                     passwordInFocus = false
@@ -71,8 +84,8 @@ extension LoginView {
 
     private var form: some View {
         VStack(spacing: 20.0) {
-            TextField("", text: $email)
-                .placeholder(when: email.isEmpty) {
+            TextField("", text: $viewModel.email)
+                .placeholder(when: viewModel.email.isEmpty) {
                     Text("Email")
                         .adaptiveFont(.neuzeitBook, size: 17.0)
                         .padding(.horizontal, 12.0)
@@ -84,8 +97,8 @@ extension LoginView {
                 .textInputAutocapitalization(.never)
                 .focused($emailInFocus)
 
-            SecureField("", text: $password)
-                .placeholder(when: password.isEmpty) {
+            SecureField("", text: $viewModel.password)
+                .placeholder(when: viewModel.password.isEmpty) {
                     Text("Password")
                         .adaptiveFont(.neuzeitBook, size: 17.0)
                         .padding(.horizontal, 12.0)
@@ -94,16 +107,28 @@ extension LoginView {
                 .textFieldStyle(FieldStyle())
                 .focused($passwordInFocus)
 
-            Button {} label: {
+            Button {
+                viewModel.login()
+            } label: {
                 Text("Log in")
                     .adaptiveFont(.neuzeitHeavy, size: 17.0)
                     .frame(maxWidth: .infinity, maxHeight: 56.0)
-                    .background(Color.white)
+                    .background(viewModel.isLoginEnabled ? Color.white : Color.gray)
                     .foregroundColor(.black)
                     .cornerRadius(12.0)
             }
+            .disabled(!viewModel.isLoginEnabled)
         }
         .padding(.horizontal, 24.0)
+    }
+
+    private var background: some View {
+        Asset.Images.background.swiftUIImage
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .blur(radius: showingForm ? 24.0 : 0.0, opaque: true)
+            .overlay(OverlayView())
+            .ignoresSafeArea()
     }
 }
 
@@ -131,7 +156,7 @@ extension LoginView {
 struct LoginView_Previews: PreviewProvider {
 
     static var previews: some View {
-        LoginView()
+        LoginView(viewModel: LoginViewModel(surveyClient: SurveyClientOk()))
     }
 }
 #endif

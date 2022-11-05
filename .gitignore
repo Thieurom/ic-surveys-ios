@@ -22,3 +22,7 @@ Brewfile.lock.json
 # Bundler
 /.bundle
 /vendor/bundle
+
+# Secrets
+NimbleSurvey/Sources/Secrets/Secrets.swift
+.private

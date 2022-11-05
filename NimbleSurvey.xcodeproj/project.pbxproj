@@ -12,6 +12,9 @@
 		4D298E6D290A70AE00BEC5E8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */; };
 		4D298E6E290A70AE00BEC5E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D298E6C290A70AD00BEC5E8 /* Images.xcassets */; };
 		4D298E892912754500BEC5E8 /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E882912754500BEC5E8 /* Splash */; };
+		4D298E8B2914FE7A00BEC5E8 /* SurveyClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E8A2914FE7A00BEC5E8 /* SurveyClient */; };
+		4D298E8D2919054D00BEC5E8 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D298E8C2919054C00BEC5E8 /* Secrets.swift */; };
+		4D298E94291A0C9800BEC5E8 /* Secrets.swift.example in Resources */ = {isa = PBXBuildFile; fileRef = 4D298E93291A0C9800BEC5E8 /* Secrets.swift.example */; };
 		4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */; };
 		4D77546F28E5581C00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77546E28E5581C00C933FC /* ExampleTests.swift */; };
 		4D77547228E5588F00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77547128E5588F00C933FC /* ExampleTests.swift */; };
@@ -45,6 +48,8 @@
 		4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4D298E6C290A70AD00BEC5E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D298E872912748200BEC5E8 /* Splash */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Splash; path = NimbleSurvey/Splash; sourceTree = "<group>"; };
+		4D298E8C2919054C00BEC5E8 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		4D298E93291A0C9800BEC5E8 /* Secrets.swift.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.swift.example; sourceTree = "<group>"; };
 		4D7753EC28E3018A00C933FC /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleSurveyApp.swift; sourceTree = "<group>"; };
 		4D7753FC28E3018B00C933FC /* NimbleSurveyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NimbleSurveyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D298E592907C24A00BEC5E8 /* Login in Frameworks */,
+				4D298E8B2914FE7A00BEC5E8 /* SurveyClient in Frameworks */,
 				4D298E5C2907DD7C00BEC5E8 /* Styleguide in Frameworks */,
 				4D298E892912754500BEC5E8 /* Splash in Frameworks */,
 			);
@@ -117,6 +123,15 @@
 				4D298E6C290A70AD00BEC5E8 /* Images.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4D298E8E2919055000BEC5E8 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				4D298E8C2919054C00BEC5E8 /* Secrets.swift */,
+				4D298E93291A0C9800BEC5E8 /* Secrets.swift.example */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 		4D7753E328E3018A00C933FC = {
@@ -182,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				4D77544F28E301FF00C933FC /* Application */,
+				4D298E8E2919055000BEC5E8 /* Secrets */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -247,6 +263,7 @@
 				4D298E582907C24A00BEC5E8 /* Login */,
 				4D298E5B2907DD7C00BEC5E8 /* Styleguide */,
 				4D298E882912754500BEC5E8 /* Splash */,
+				4D298E8A2914FE7A00BEC5E8 /* SurveyClient */,
 			);
 			productName = NimbleSurvey;
 			productReference = 4D7753EC28E3018A00C933FC /* NimbleSurvey.app */;
@@ -341,6 +358,7 @@
 				4D298E6E290A70AE00BEC5E8 /* Images.xcassets in Resources */,
 				4D9F895428F3D15900C7185D /* GoogleService-Info.plist in Resources */,
 				4D298E6D290A70AE00BEC5E8 /* Colors.xcassets in Resources */,
+				4D298E94291A0C9800BEC5E8 /* Secrets.swift.example in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */,
+				4D298E8D2919054D00BEC5E8 /* Secrets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1046,6 +1065,10 @@
 		4D298E882912754500BEC5E8 /* Splash */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Splash;
+		};
+		4D298E8A2914FE7A00BEC5E8 /* SurveyClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SurveyClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
