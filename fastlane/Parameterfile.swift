@@ -10,7 +10,6 @@
 enum Parameterfile {
 
     static let projectName = "NimbleSurvey"
-    static let scheme = projectName
     static let target = projectName
     static let testsTarget = "\(projectName)Tests"
     static let uiTestsTarget = "\(projectName)UITests"
@@ -18,4 +17,8 @@ enum Parameterfile {
     static let outputDirectory = "./fastlane/test_output"
     static let outputTypes = ""
     static let xcodebuildFormatter = "xcbeautify"
+    static let buildArguments = "CI=true"
+    static let buildPath = "./Build"
+    static let derivedDataPath = "./DerivedData"
+    static let testerGroups = "Nimble"
 }

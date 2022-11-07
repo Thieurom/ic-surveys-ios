@@ -12,7 +12,11 @@
 		1257253924B7992C00E04FA3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1257253824B7992B00E04FA3 /* main.swift */; };
 		1267C3F42773A43E004DE48A /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267C3F32773A43E004DE48A /* Atomic.swift */; };
 		12D2EB8D2620D83C00844013 /* OptionalConfigValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D2EB8C2620D83B00844013 /* OptionalConfigValue.swift */; };
+		4D27E52328F27A27003E72B8 /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27E52228F27A27003E72B8 /* BuildConfiguration.swift */; };
+		4D27E52528F27BC2003E72B8 /* SigningType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D27E52428F27BC2003E72B8 /* SigningType.swift */; };
 		4D77547428E57A7100C933FC /* Parameterfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77547328E57A7100C933FC /* Parameterfile.swift */; };
+		4D9F895028F3CC3A00C7185D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F894F28F3CC3A00C7185D /* Environment.swift */; };
+		4D9F895228F3CE3C00C7185D /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9F895128F3CE3C00C7185D /* Secret.swift */; };
 		B302067B1F5E3E9000DE6EBD /* SnapshotfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30206741F5E3E9000DE6EBD /* SnapshotfileProtocol.swift */; };
 		B302067C1F5E3E9000DE6EBD /* GymfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30206751F5E3E9000DE6EBD /* GymfileProtocol.swift */; };
 		B302067D1F5E3E9000DE6EBD /* MatchfileProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30206761F5E3E9000DE6EBD /* MatchfileProtocol.swift */; };
@@ -72,7 +76,11 @@
 		1257253824B7992B00E04FA3 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = ../main.swift; sourceTree = "<group>"; };
 		1267C3F32773A43E004DE48A /* Atomic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Atomic.swift; path = ../Atomic.swift; sourceTree = "<group>"; };
 		12D2EB8C2620D83B00844013 /* OptionalConfigValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionalConfigValue.swift; path = ../OptionalConfigValue.swift; sourceTree = "<group>"; };
+		4D27E52228F27A27003E72B8 /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BuildConfiguration.swift; path = ../../BuildConfiguration.swift; sourceTree = "<group>"; };
+		4D27E52428F27BC2003E72B8 /* SigningType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SigningType.swift; path = ../../SigningType.swift; sourceTree = "<group>"; };
 		4D77547328E57A7100C933FC /* Parameterfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Parameterfile.swift; path = ../../Parameterfile.swift; sourceTree = "<group>"; };
+		4D9F894F28F3CC3A00C7185D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = ../../Environment.swift; sourceTree = "<group>"; };
+		4D9F895128F3CE3C00C7185D /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secret.swift; path = ../../Secret.swift; sourceTree = "<group>"; };
 		B30206741F5E3E9000DE6EBD /* SnapshotfileProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotfileProtocol.swift; path = ../SnapshotfileProtocol.swift; sourceTree = "<group>"; };
 		B30206751F5E3E9000DE6EBD /* GymfileProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GymfileProtocol.swift; path = ../GymfileProtocol.swift; sourceTree = "<group>"; };
 		B30206761F5E3E9000DE6EBD /* MatchfileProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchfileProtocol.swift; path = ../MatchfileProtocol.swift; sourceTree = "<group>"; };
@@ -137,6 +145,10 @@
 				D55B28BC1F6C588300DC42C5 /* Deliverfile.swift */,
 				D5A7C48E1F7C4DAF00A91DE6 /* Fastfile.swift */,
 				4D77547328E57A7100C933FC /* Parameterfile.swift */,
+				4D27E52228F27A27003E72B8 /* BuildConfiguration.swift */,
+				4D9F894F28F3CC3A00C7185D /* Environment.swift */,
+				4D9F895128F3CE3C00C7185D /* Secret.swift */,
+				4D27E52428F27BC2003E72B8 /* SigningType.swift */,
 				D55B28BD1F6C588300DC42C5 /* Gymfile.swift */,
 				D55B28BE1F6C588300DC42C5 /* Matchfile.swift */,
 				D55B28BF1F6C588300DC42C5 /* Precheckfile.swift */,
@@ -269,6 +281,7 @@
 				B302067D1F5E3E9000DE6EBD /* MatchfileProtocol.swift in Sources */,
 				1267C3F42773A43E004DE48A /* Atomic.swift in Sources */,
 				B3BA65AC1F5A269100B34850 /* SocketClientDelegateProtocol.swift in Sources */,
+				4D9F895228F3CE3C00C7185D /* Secret.swift in Sources */,
 				B3BA65A71F5A269100B34850 /* LaneFileProtocol.swift in Sources */,
 				D55B28C61F6C588300DC42C5 /* Precheckfile.swift in Sources */,
 				B302067F1F5E3E9000DE6EBD /* ScanfileProtocol.swift in Sources */,
@@ -276,6 +289,7 @@
 				D55B28C51F6C588300DC42C5 /* Matchfile.swift in Sources */,
 				B30206801F5E3E9000DE6EBD /* ScreengrabfileProtocol.swift in Sources */,
 				D5BAFD121F7DAAFC0030B324 /* ArgumentProcessor.swift in Sources */,
+				4D9F895028F3CC3A00C7185D /* Environment.swift in Sources */,
 				B302067C1F5E3E9000DE6EBD /* GymfileProtocol.swift in Sources */,
 				B302067B1F5E3E9000DE6EBD /* SnapshotfileProtocol.swift in Sources */,
 				D55B28C31F6C588300DC42C5 /* Deliverfile.swift in Sources */,
@@ -295,7 +309,9 @@
 				D55B28C91F6C588300DC42C5 /* Snapshotfile.swift in Sources */,
 				B3BA65A61F5A269100B34850 /* Fastlane.swift in Sources */,
 				D55B28C81F6C588300DC42C5 /* Screengrabfile.swift in Sources */,
+				4D27E52528F27BC2003E72B8 /* SigningType.swift in Sources */,
 				12D2EB8D2620D83C00844013 /* OptionalConfigValue.swift in Sources */,
+				4D27E52328F27A27003E72B8 /* BuildConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,6 +4,10 @@
 # Xcode
 xcuserdata/
 
+# Build artifacts
+Build
+DerivedData
+
 # Generated from code generators
 NimbleSurvey/Generated/*.swift
 
