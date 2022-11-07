@@ -1,1 +1,27 @@
+# Mac
 .DS_Store
+
+# Xcode
+xcuserdata/
+
+# Build artifacts
+Build
+DerivedData
+
+# Generated from code generators
+NimbleSurvey/Generated/*.swift
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/screenshots/screenshots.html
+fastlane/test_output
+fastlane/FastlaneRunner
+
+# Homebrew
+Brewfile.lock.json
+
+# Bundler
+/.bundle
+/vendor/bundle
