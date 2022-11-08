@@ -79,18 +79,16 @@ extension SurveyClient {
                 print("[SurveyClient][INFO] Response: \(request)\n\(codeString)\(String(decoding: $0.data, as: UTF8.self))")
                 #endif
             })
-            .tryMap { data, response in
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    throw SurveyError.unknown
+            .tryMap { data, _ in
+                do {
+                    return try jsonDecoder.decode(R.self, from: data)
+                } catch {
+                    if let apiError = (error as? [JSONAPIError])?.first {
+                        throw SurveyError.badRequest(apiError.detail ?? "Something wrong.")
+                    }
+                    throw error
                 }
-
-                guard (200..<300) ~= httpResponse.statusCode else {
-                    throw SurveyError.badRequest
-                }
-
-                return data
             }
-            .decode(type: R.self, decoder: jsonDecoder)
             .mapError { error -> SurveyError in
                 if error is DecodingError {
                     return .badData

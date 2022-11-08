@@ -7,9 +7,9 @@
 
 import Foundation
 
-public enum SurveyError: Error {
+public enum SurveyError: Error, Equatable {
 
-    case badRequest
+    case badRequest(String)
     case badData
     case unknown
 }
@@ -18,7 +18,7 @@ extension SurveyError: CustomDebugStringConvertible {
 
     public var debugDescription: String {
         switch self {
-        case .badRequest: return "Bad request"
+        case let .badRequest(detail): return "Bad request: \(detail)"
         case .badData: return "Bad data"
         case .unknown: return "Unknown error"
         }

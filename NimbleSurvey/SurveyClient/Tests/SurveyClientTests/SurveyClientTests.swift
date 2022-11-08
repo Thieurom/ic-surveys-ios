@@ -37,10 +37,10 @@ final class SurveyClientTests: XCTestCase {
 
 extension SurveyClientTests {
 
-    func testAuthenticate_APIReturnError_GetError() {
+    func testAuthenticate_APIReturnURLError_GetError() {
         var error: SurveyError!
         let expectation = expectation(description: "authenticate")
-        MockingURLProtocol.mock = Mock(statusCode: 400, error: TestHelpers.Error.fail, data: nil)
+        MockingURLProtocol.mock = Mock(statusCode: 400, error: URLError(.unknown), data: nil)
 
         surveyClient.authenticate(email: email, password: password)
             .sink(receiveCompletion: { completion in
@@ -56,10 +56,27 @@ extension SurveyClientTests {
         XCTAssertTrue(error == .unknown)
     }
 
-    func testAuthenticate_APIReturnNonOkStatusCode_GetError() {
+    func testAuthenticate_APIReturnError_GetError() {
         var error: SurveyError!
         let expectation = expectation(description: "authenticate")
-        MockingURLProtocol.mock = Mock(statusCode: 400, error: nil, data: nil)
+
+        let errorDetail = """
+        Client authentication failed due to unknown client, \
+        no client authentication included, or unsupported authentication method.
+        """
+
+        let json = """
+        {
+            "errors": [
+                {
+                    "detail": "\(errorDetail)",
+                    "code": "invalid_client"
+                }
+            ]
+        }
+        """
+
+        MockingURLProtocol.mock = Mock(statusCode: 400, error: nil, json: json)
 
         surveyClient.authenticate(email: email, password: password)
             .sink(receiveCompletion: { completion in
@@ -67,13 +84,12 @@ extension SurveyClientTests {
                     error = encounterError
                     expectation.fulfill()
                 }
-
             }, receiveValue: { _ in })
             .store(in: &cancellables)
 
         waitForExpectations(timeout: 1.0)
 
-        XCTAssertTrue(error == .badRequest)
+        XCTAssertTrue(error == .badRequest(errorDetail))
     }
 
     func testAuthenticate_APIReturnEmptyData_GetError() {
@@ -132,7 +148,7 @@ extension SurveyClientTests {
         XCTAssertTrue(error == .badData)
     }
 
-    func testAuthenticate_APIGotProperData_ReturnsSuccess() {
+    func testAuthenticate_APIReturnProperData_GetSuccess() {
         var credentials: Credentials!
 
         let accessToken = "ACCESS_TOKEN"
