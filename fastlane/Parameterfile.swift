@@ -6,19 +6,18 @@
 //  Copyright © 2022 Joshua Liebowitz. All rights reserved.
 //
 
+import Foundation
+
 // Put all the parameters for fastlane here!
 enum Parameterfile {
 
-    static let projectName = "NimbleSurvey"
-    static let target = projectName
-    static let testsTarget = "\(projectName)Tests"
-    static let uiTestsTarget = "\(projectName)UITests"
+    static let projectDirectoryPath = FileManager.default.currentDirectoryPath
     static let devices = ["iPhone 8", "iPhone 13 Pro Max"]
-    static let outputDirectory = "./fastlane/test_output"
+    static let outputDirectory = "\(projectDirectoryPath)/test_output"
     static let outputTypes = ""
     static let xcodebuildFormatter = "xcbeautify"
     static let buildArguments = "CI=true"
-    static let buildPath = "./Build"
-    static let derivedDataPath = "./DerivedData"
+    static let buildPath = "\(projectDirectoryPath)/Build"
+    static let derivedDataPath = "\(projectDirectoryPath)/DerivedData"
     static let testerGroups = "Nimble"
 }

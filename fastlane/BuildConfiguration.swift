@@ -21,17 +21,10 @@ extension BuildConfiguration: CustomStringConvertible {
 
 extension BuildConfiguration {
 
-    var scheme: String {
-        switch self {
-        case .staging: return "\(Parameterfile.projectName) Staging"
-        case .production: return Parameterfile.projectName
-        }
-    }
-
     var outputName: String {
         switch self {
-        case .staging: return "\(Parameterfile.projectName) Staging"
-        case .production: return Parameterfile.projectName
+        case .staging: return "\(Module.app(.staging).name) Staging"
+        case .production: return Module.app(.production).name
         }
     }
 
