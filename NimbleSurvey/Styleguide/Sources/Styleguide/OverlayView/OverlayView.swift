@@ -11,6 +11,10 @@ public struct OverlayView: View {
 
     let colors: [Color]
 
+    public init(colors: [Color] = [.black.opacity(0.1), .black.opacity(1.0)]) {
+        self.colors = colors
+    }
+
     public var body: some View {
         LinearGradient(
             gradient: Gradient(colors: colors),
@@ -18,15 +22,13 @@ public struct OverlayView: View {
             endPoint: .bottom
         )
     }
-
-    public init(colors: [Color] = [.black.opacity(0.1), .black.opacity(1.0)]) {
-        self.colors = colors
-    }
 }
 
+#if DEBUG
 struct OverlayView_Previews: PreviewProvider {
 
     static var previews: some View {
         OverlayView()
     }
 }
+#endif

@@ -12,26 +12,25 @@ public struct SplashView: View {
 
     @State private var showingLogo = false
 
-    public var body: some View {
-        ZStack {
-            Asset.Images.background.swiftUIImage
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .overlay(OverlayView())
-                .ignoresSafeArea()
-
-            Asset.Images.logo.swiftUIImage
-                .frame(maxWidth: .infinity)
-                .opacity(showingLogo ? 1.0 : 0.0)
-        }
-        .onAppear {
-            withAnimation(.easeIn(duration: 1.0).delay(1.0)) {
-                showingLogo = true
-            }
-        }
-    }
-
     public init() {}
+
+    public var body: some View {
+        Asset.Images.logo.swiftUIImage
+            .frame(maxWidth: .infinity)
+            .opacity(showingLogo ? 1.0 : 0.0)
+            .background(
+                Asset.Images.background.swiftUIImage
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .overlay(OverlayView())
+                    .ignoresSafeArea()
+            )
+            .onAppear {
+                withAnimation(.easeIn(duration: 1.0).delay(1.0)) {
+                    showingLogo = true
+                }
+            }
+    }
 }
 
 #if DEBUG

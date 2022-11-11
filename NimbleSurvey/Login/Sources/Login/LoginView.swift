@@ -1,4 +1,3 @@
-// swiftlint:disable superfluous_disable_command closure_body_length
 //
 //  LoginView.swift
 //  Login
@@ -15,12 +14,38 @@ public struct LoginView: View {
     @State private var password: String = ""
     @State private var showingForm = false
     @State private var logoScale = 1.0
+    @State private var bottomPadding: CGFloat = .zero
     @FocusState private var emailInFocus: Bool
     @FocusState private var passwordInFocus: Bool
-    private let spacing: CGFloat = 40.0
+
+    public init() {}
 
     public var body: some View {
-        ZStack {
+        GeometryReader { _ in
+            VStack(spacing: 0) {
+                Asset.Images.logo.swiftUIImage
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .scaleEffect(logoScale)
+
+                if showingForm {
+                    form
+                        .frame(maxHeight: .infinity)
+                        .opacity(showingForm ? 1.0 : 0.0)
+
+                    if bottomPadding == .zero {
+                        Spacer()
+                            .frame(maxHeight: .infinity)
+                    }
+                }
+            }
+            .onKeyboardUpdate { keyboardHeight in
+                withAnimation(.easeIn(duration: 0.25)) {
+                    bottomPadding = keyboardHeight
+                }
+            }
+            .padding(.bottom, bottomPadding)
+        }
+        .background(
             Asset.Images.background.swiftUIImage
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -31,35 +56,15 @@ public struct LoginView: View {
                     emailInFocus = false
                     passwordInFocus = false
                 }
-
-            VStack {
-                Spacer(minLength: spacing)
-
-                Asset.Images.logo.swiftUIImage
-                    .frame(maxHeight: .infinity)
-                    .scaleEffect(logoScale)
-                    .onAppear {
-                        withAnimation(.easeIn(duration: 0.4).delay(0.5)) {
-                            logoScale = 0.85
-                            showingForm = true
-                        }
-                    }
-
-                if showingForm {
-                    form
-                        .frame(maxHeight: .infinity)
-                        .opacity(showingForm ? 1.0 : 0.0)
-
-                    Spacer()
-                        .frame(maxHeight: .infinity)
-                }
-
-                Spacer(minLength: spacing)
+        )
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .onAppear {
+            withAnimation(.easeIn(duration: 0.4).delay(0.5)) {
+                logoScale = 0.85
+                showingForm = true
             }
         }
     }
-
-    public init() {}
 }
 
 extension LoginView {
@@ -75,6 +80,8 @@ extension LoginView {
                 }
                 .textFieldStyle(FieldStyle())
                 .keyboardType(.emailAddress)
+                .disableAutocorrection(true)
+                .textInputAutocapitalization(.never)
                 .focused($emailInFocus)
 
             SecureField("", text: $password)
