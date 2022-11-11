@@ -8,9 +8,6 @@ xcuserdata/
 Build
 DerivedData
 
-# Generated from code generators
-NimbleSurvey/Generated/*.swift
-
 # fastlane
 fastlane/report.xml
 fastlane/Preview.html

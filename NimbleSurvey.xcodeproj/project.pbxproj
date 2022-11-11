@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D0E285028EC2E7600D53C91 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0E284F28EC2E7600D53C91 /* Assets.swift */; };
+		4D298E592907C24A00BEC5E8 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E582907C24A00BEC5E8 /* Login */; };
+		4D298E5C2907DD7C00BEC5E8 /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E5B2907DD7C00BEC5E8 /* Styleguide */; };
+		4D298E6D290A70AE00BEC5E8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */; };
+		4D298E6E290A70AE00BEC5E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D298E6C290A70AD00BEC5E8 /* Images.xcassets */; };
+		4D298E892912754500BEC5E8 /* Splash in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E882912754500BEC5E8 /* Splash */; };
 		4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */; };
-		4D7753F428E3018A00C933FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7753F328E3018A00C933FC /* Images.xcassets */; };
-		4D7753F728E3018A00C933FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D7753F628E3018A00C933FC /* Preview Assets.xcassets */; };
-		4D77545E28E4226000C933FC /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77545D28E4226000C933FC /* SplashView.swift */; };
-		4D77546028E4297F00C933FC /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77545F28E4297F00C933FC /* OverlayView.swift */; };
-		4D77546528E4407400C933FC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D77546428E4407400C933FC /* Colors.xcassets */; };
 		4D77546F28E5581C00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77546E28E5581C00C933FC /* ExampleTests.swift */; };
 		4D77547228E5588F00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77547128E5588F00C933FC /* ExampleTests.swift */; };
 		4D9F895428F3D15900C7185D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D9F895328F3D15900C7185D /* GoogleService-Info.plist */; };
@@ -37,20 +36,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D0E284F28EC2E7600D53C91 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		4D27E51428F014CA003E72B8 /* DebugStaging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugStaging.xcconfig; sourceTree = "<group>"; };
 		4D27E51728F0159E003E72B8 /* DebugProduction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugProduction.xcconfig; sourceTree = "<group>"; };
 		4D27E51828F01BA8003E72B8 /* ReleaseStaging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseStaging.xcconfig; sourceTree = "<group>"; };
 		4D27E51928F01BB4003E72B8 /* ReleaseProduction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseProduction.xcconfig; sourceTree = "<group>"; };
+		4D298E562907BAAD00BEC5E8 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Login; path = NimbleSurvey/Login; sourceTree = "<group>"; };
+		4D298E5A2907D66E00BEC5E8 /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = NimbleSurvey/Styleguide; sourceTree = "<group>"; };
+		4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		4D298E6C290A70AD00BEC5E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4D298E872912748200BEC5E8 /* Splash */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Splash; path = NimbleSurvey/Splash; sourceTree = "<group>"; };
 		4D7753EC28E3018A00C933FC /* NimbleSurvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleSurvey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NimbleSurveyApp.swift; sourceTree = "<group>"; };
-		4D7753F328E3018A00C933FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4D7753F628E3018A00C933FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4D7753FC28E3018B00C933FC /* NimbleSurveyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NimbleSurveyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D77540628E3018B00C933FC /* NimbleSurveyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NimbleSurveyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D77545D28E4226000C933FC /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		4D77545F28E4297F00C933FC /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
-		4D77546428E4407400C933FC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4D77546E28E5581C00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		4D77547128E5588F00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		4D8DAF8F28F7B573005CB41F /* SurveyClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SurveyClient; path = NimbleSurvey/SurveyClient; sourceTree = "<group>"; };
@@ -62,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D298E592907C24A00BEC5E8 /* Login in Frameworks */,
+				4D298E5C2907DD7C00BEC5E8 /* Styleguide in Frameworks */,
+				4D298E892912754500BEC5E8 /* Splash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,14 +103,34 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		4D298E572907C24A00BEC5E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D298E6A290A70AD00BEC5E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */,
+				4D298E6C290A70AD00BEC5E8 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4D7753E328E3018A00C933FC = {
 			isa = PBXGroup;
 			children = (
+				4D298E872912748200BEC5E8 /* Splash */,
+				4D298E5A2907D66E00BEC5E8 /* Styleguide */,
+				4D298E562907BAAD00BEC5E8 /* Login */,
 				4D8DAF8F28F7B573005CB41F /* SurveyClient */,
 				4D7753EE28E3018A00C933FC /* NimbleSurvey */,
 				4D7753FF28E3018B00C933FC /* NimbleSurveyTests */,
 				4D77540928E3018B00C933FC /* NimbleSurveyUITests */,
 				4D7753ED28E3018A00C933FC /* Products */,
+				4D298E572907C24A00BEC5E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,19 +148,10 @@
 			isa = PBXGroup;
 			children = (
 				4D27E51628F014D7003E72B8 /* Configurations */,
-				4D77546828E4418700C933FC /* Generated */,
-				4D77545128E3021900C933FC /* Resources */,
+				4D298E6A290A70AD00BEC5E8 /* Resources */,
 				4D77545028E3021300C933FC /* Sources */,
 			);
 			path = NimbleSurvey;
-			sourceTree = "<group>";
-		};
-		4D7753F528E3018A00C933FC /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				4D7753F628E3018A00C933FC /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		4D7753FF28E3018B00C933FC /* NimbleSurveyTests */ = {
@@ -170,44 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				4D77544F28E301FF00C933FC /* Application */,
-				4D77546328E439A900C933FC /* Splash */,
-				4D77546228E4398D00C933FC /* CommonViews */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		4D77545128E3021900C933FC /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4D7753F328E3018A00C933FC /* Images.xcassets */,
-				4D77546428E4407400C933FC /* Colors.xcassets */,
-				4D7753F528E3018A00C933FC /* Preview Content */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		4D77546228E4398D00C933FC /* CommonViews */ = {
-			isa = PBXGroup;
-			children = (
-				4D77545F28E4297F00C933FC /* OverlayView.swift */,
-			);
-			path = CommonViews;
-			sourceTree = "<group>";
-		};
-		4D77546328E439A900C933FC /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				4D77545D28E4226000C933FC /* SplashView.swift */,
-			);
-			path = Splash;
-			sourceTree = "<group>";
-		};
-		4D77546828E4418700C933FC /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				4D0E284F28EC2E7600D53C91 /* Assets.swift */,
-			);
-			path = Generated;
 			sourceTree = "<group>";
 		};
 		4D77546D28E5581C00C933FC /* Sources */ = {
@@ -257,7 +233,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D77541028E3018B00C933FC /* Build configuration list for PBXNativeTarget "NimbleSurvey" */;
 			buildPhases = (
-				4D0E283F28EA940400D53C91 /* SwiftGen */,
 				4D7753E828E3018A00C933FC /* Sources */,
 				4D77547528E589A400C933FC /* SwiftLint */,
 				4D7753E928E3018A00C933FC /* Frameworks */,
@@ -268,6 +243,11 @@
 			dependencies = (
 			);
 			name = NimbleSurvey;
+			packageProductDependencies = (
+				4D298E582907C24A00BEC5E8 /* Login */,
+				4D298E5B2907DD7C00BEC5E8 /* Styleguide */,
+				4D298E882912754500BEC5E8 /* Splash */,
+			);
 			productName = NimbleSurvey;
 			productReference = 4D7753EC28E3018A00C933FC /* NimbleSurvey.app */;
 			productType = "com.apple.product-type.application";
@@ -358,10 +338,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D77546528E4407400C933FC /* Colors.xcassets in Resources */,
-				4D7753F728E3018A00C933FC /* Preview Assets.xcassets in Resources */,
+				4D298E6E290A70AE00BEC5E8 /* Images.xcassets in Resources */,
 				4D9F895428F3D15900C7185D /* GoogleService-Info.plist in Resources */,
-				4D7753F428E3018A00C933FC /* Images.xcassets in Resources */,
+				4D298E6D290A70AE00BEC5E8 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,25 +361,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4D0E283F28EA940400D53C91 /* SwiftGen */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftGen;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/NimbleSurvey/Generated/Assets.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
-		};
 		4D77547528E589A400C933FC /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -428,9 +388,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */,
-				4D77545E28E4226000C933FC /* SplashView.swift in Sources */,
-				4D0E285028EC2E7600D53C91 /* Assets.swift in Sources */,
-				4D77546028E4297F00C933FC /* OverlayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +493,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NimbleSurvey/Resources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = GYPH974N94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -676,7 +633,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NimbleSurvey/Resources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = GYPH974N94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -874,7 +831,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NimbleSurvey/Resources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NimbleSurvey/Info.plist;
@@ -906,7 +863,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NimbleSurvey/Resources/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NimbleSurvey/Info.plist;
@@ -1076,6 +1033,21 @@
 			defaultConfigurationName = "Release Production";
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4D298E582907C24A00BEC5E8 /* Login */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Login;
+		};
+		4D298E5B2907DD7C00BEC5E8 /* Styleguide */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Styleguide;
+		};
+		4D298E882912754500BEC5E8 /* Splash */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Splash;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4D7753E428E3018A00C933FC /* Project object */;
 }

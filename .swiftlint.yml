@@ -61,7 +61,6 @@ opt_in_rules:
   - static_operator
   - strong_iboutlet
   - toggle_bool
-  - type_contents_order
   - unneeded_parentheses_in_closure_argument
   - unowned_variable_capture
   - untyped_error_in_catch
@@ -100,6 +99,8 @@ number_separator:
   minimum_fraction_length: 10
 trailing_whitespace:
   ignores_empty_lines: true
+closure_body_length:
+  warning: 30
 implicit_return:
   included:
     - closure
