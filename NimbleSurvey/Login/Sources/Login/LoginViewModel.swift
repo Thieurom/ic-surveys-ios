@@ -33,11 +33,15 @@ public class LoginViewModel: ObservableObject {
     }
     
     public func login() {
+        guard isLoginEnabled else { return }
+
         isLoading = true
 
         surveyClient.authenticate(email: email, password: password)
             .receive(on: DispatchQueue.main)
-            .handleEvents(receiveCompletion: { [weak self] _ in self?.isLoading = false })
+            .handleEvents(receiveCompletion: { [weak self] _ in
+                self?.isLoading = false
+            })
             .sink(receiveCompletion: { [weak self] completion in
                 // TODO: Update when handling errors
                 if case .failure = completion {
