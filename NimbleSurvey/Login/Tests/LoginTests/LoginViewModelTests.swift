@@ -35,7 +35,7 @@ final class LoginViewModelTests: XCTestCase {
 
         var isLoginEnabled = [Bool]()
         var isLoading = [Bool]()
-        var loginResult = [String?]()
+        var loginResult = [(title: String, description: String)]()
 
         let isLoginEnabledExpectation = expectation(description: "isLoginEnabled")
         let isLoadingExpectation = expectation(description: "isLoading")
@@ -63,7 +63,7 @@ final class LoginViewModelTests: XCTestCase {
             .collect(2)
             .first()
             .sink(receiveValue: {
-                loginResult = $0
+                loginResult = $0.compactMap { $0 }
                 loginResultExpectation.fulfill()
             })
             .store(in: &cancellables)
@@ -76,7 +76,8 @@ final class LoginViewModelTests: XCTestCase {
 
         XCTAssertEqual(isLoading, [false, true, false])
         XCTAssertEqual(isLoginEnabled, [false, false, true])
-        XCTAssertEqual(loginResult, [nil, "Fail to login!"])
+        XCTAssertEqual(loginResult.map(\.title), ["Unable to login"])
+        XCTAssertEqual(loginResult.map(\.description), ["There's something wrong. Please try again!"])
     }
 
     func testLogin_WhenSurveyClientReturnSuccess() {
@@ -86,7 +87,7 @@ final class LoginViewModelTests: XCTestCase {
 
         var isLoginEnabled = [Bool]()
         var isLoading = [Bool]()
-        var loginResult = [String?]()
+        var loginResult = [(title: String, description: String)]()
 
         let isLoginEnabledExpectation = expectation(description: "isLoginEnabled")
         let isLoadingExpectation = expectation(description: "isLoading")
@@ -114,7 +115,7 @@ final class LoginViewModelTests: XCTestCase {
             .collect(2)
             .first()
             .sink(receiveValue: {
-                loginResult = $0
+                loginResult = $0.compactMap { $0 }
                 loginResultExpectation.fulfill()
             })
             .store(in: &cancellables)
@@ -127,6 +128,6 @@ final class LoginViewModelTests: XCTestCase {
 
         XCTAssertEqual(isLoading, [false, true, false])
         XCTAssertEqual(isLoginEnabled, [false, false, true])
-        XCTAssertEqual(loginResult, [nil, "You've been logged in successfully!"])
-    }
+        XCTAssertEqual(loginResult.map(\.title), ["Login successfully"])
+        XCTAssertEqual(loginResult.map(\.description), ["You've been logged in!"])    }
 }

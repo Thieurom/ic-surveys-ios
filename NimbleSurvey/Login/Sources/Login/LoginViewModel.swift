@@ -17,7 +17,7 @@ public class LoginViewModel: ObservableObject {
     @Published var password = ""
     @Published private(set) var isLoginEnabled = false
     @Published private(set) var isLoading = false
-    @Published private(set) var loginResult: String?
+    @Published private(set) var loginResult: (title: String, description: String)?
 
     // MARK: - Internal
 
@@ -43,13 +43,12 @@ public class LoginViewModel: ObservableObject {
                 self?.isLoading = false
             })
             .sink(receiveCompletion: { [weak self] completion in
-                // TODO: Update when handling errors
                 if case .failure = completion {
-                    self?.loginResult = "Fail to login!"
+                    self?.loginResult = ("Unable to login", "There's something wrong. Please try again!")
                 }
             }, receiveValue: { [weak self] _ in
                 // TODO: Navigate to the Home screen
-                self?.loginResult = "You've been logged in successfully!"
+                self?.loginResult = ("Login successfully", "You've been logged in!")
             })
             .store(in: &cancellables)
     }
