@@ -16,6 +16,7 @@ public struct LoginView: View {
     @State private var bottomPadding: CGFloat = .zero
     @State private var isShowingSpinner = false
     @State private var isShowingLoginResult = false
+    @State private var loginResultTitle: String?
     @State private var loginResultMessage: String?
     @FocusState private var emailInFocus: Bool
     @FocusState private var passwordInFocus: Bool
@@ -49,10 +50,11 @@ public struct LoginView: View {
             .onReceive(viewModel.$isLoading) { isShowingSpinner = $0 }
             .onReceive(viewModel.$loginResult.dropFirst()) {
                 isShowingLoginResult = true
-                loginResultMessage = $0
+                loginResultTitle = $0?.title
+                loginResultMessage = $0?.description
             }
             .alert(
-                "Login",
+                loginResultTitle ?? "Login Result",
                 isPresented: $isShowingLoginResult,
                 presenting: loginResultMessage,
                 actions: { _ in },
