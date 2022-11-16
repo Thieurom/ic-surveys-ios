@@ -8,6 +8,7 @@
 import Styleguide
 import SurveyClientType
 import SwiftUI
+import Validating
 
 public struct LoginView: View {
 
@@ -85,7 +86,16 @@ public struct LoginView: View {
 extension LoginView {
 
     private var form: some View {
-        VStack(spacing: 20.0) {
+        VStack(spacing: 0.0) {
+            emailField
+            passwordField
+            loginButton
+        }
+        .padding(.horizontal, 24.0)
+    }
+
+    private var emailField: some View {
+        VStack(alignment: .leading, spacing: 0) {
             TextField("", text: $viewModel.email)
                 .placeholder(when: viewModel.email.isEmpty) {
                     Text("Email")
@@ -99,6 +109,18 @@ extension LoginView {
                 .textInputAutocapitalization(.never)
                 .focused($emailInFocus)
 
+            Text("Please enter the valid email format")
+                .adaptiveFont(.neuzeitBook, size: 12.0)
+                .foregroundColor(Color.red)
+                .padding(.horizontal, 12.0)
+                .padding(.top, 4.0)
+                .padding(.bottom, 8.0)
+                .hiddenIf(viewModel.isEmailValid)
+        }
+    }
+
+    private var passwordField: some View {
+        VStack(alignment: .leading, spacing: 0) {
             SecureField("", text: $viewModel.password)
                 .placeholder(when: viewModel.password.isEmpty) {
                     Text("Password")
@@ -109,19 +131,28 @@ extension LoginView {
                 .textFieldStyle(FieldStyle())
                 .focused($passwordInFocus)
 
-            Button {
-                viewModel.login()
-            } label: {
-                Text("Log in")
-                    .adaptiveFont(.neuzeitHeavy, size: 17.0)
-                    .frame(maxWidth: .infinity, maxHeight: 56.0)
-                    .background(viewModel.isLoginEnabled ? Color.white : Color.gray)
-                    .foregroundColor(.black)
-                    .cornerRadius(12.0)
-            }
-            .disabled(!viewModel.isLoginEnabled)
+            Text("Password must be at least 8 characters long")
+                .adaptiveFont(.neuzeitBook, size: 13.0)
+                .foregroundColor(Color.red)
+                .padding(.horizontal, 12.0)
+                .padding(.top, 4.0)
+                .padding(.bottom, 8.0)
+                .hiddenIf(viewModel.isPasswordValid)
         }
-        .padding(.horizontal, 24.0)
+    }
+
+    private var loginButton: some View {
+        Button {
+            viewModel.login()
+        } label: {
+            Text("Log in")
+                .adaptiveFont(.neuzeitHeavy, size: 17.0)
+                .frame(maxWidth: .infinity, maxHeight: 56.0)
+                .background(viewModel.isLoginEnabled ? Color.white : Color.gray)
+                .foregroundColor(.black)
+                .cornerRadius(12.0)
+        }
+        .disabled(!viewModel.isLoginEnabled)
     }
 
     private var background: some View {
@@ -158,7 +189,10 @@ extension LoginView {
 struct LoginView_Previews: PreviewProvider {
 
     static var previews: some View {
-        LoginView(viewModel: LoginViewModel(surveyClient: SurveyClientOk()))
+        LoginView(viewModel: LoginViewModel(
+            surveyClient: SurveyClientOk(),
+            validator: MockValidator()
+        ))
     }
 }
 #endif

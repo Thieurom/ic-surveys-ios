@@ -14,14 +14,16 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Styleguide", path: "../Styleguide"),
-        .package(name: "SurveyClient", path: "../SurveyClient")
+        .package(name: "SurveyClient", path: "../SurveyClient"),
+        .package(name: "DataValidation", path: "../DataValidation")
     ],
     targets: [
         .target(
             name: "Login",
             dependencies: [
                 .product(name: "Styleguide", package: "Styleguide"),
-                .product(name: "SurveyClientType", package: "SurveyClient")
+                .product(name: "SurveyClientType", package: "SurveyClient"),
+                .product(name: "Validating", package: "DataValidation")
             ]
         ),
         .testTarget(
