@@ -8,6 +8,7 @@
 import Combine
 import SwiftUI
 import SurveyClientType
+import Validating
 
 public class LoginViewModel: ObservableObject {
 
@@ -15,6 +16,10 @@ public class LoginViewModel: ObservableObject {
 
     @Published var email = ""
     @Published var password = ""
+    // This is quite a hack, since we don't want to show validation errors
+    // when the users haven't input anything yet!
+    @Published private(set) var isEmailValid = true
+    @Published private(set) var isPasswordValid = true
     @Published private(set) var isLoginEnabled = false
     @Published private(set) var isLoading = false
     @Published private(set) var loginResult: (title: String, description: String)?
@@ -23,9 +28,11 @@ public class LoginViewModel: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
     private let surveyClient: SurveyClientType
+    private let validator: Validating
 
-    public init(surveyClient: SurveyClientType) {
+    public init(surveyClient: SurveyClientType, validator: Validating) {
         self.surveyClient = surveyClient
+        self.validator = validator
 
         Publishers.CombineLatest($email, $password)
             .map { !$0.0.isEmpty && !$0.1.isEmpty }
@@ -33,7 +40,7 @@ public class LoginViewModel: ObservableObject {
     }
     
     public func login() {
-        guard isLoginEnabled else { return }
+        guard isLoginEnabled && validateFields() else { return }
 
         isLoading = true
 
@@ -51,5 +58,14 @@ public class LoginViewModel: ObservableObject {
                 self?.loginResult = ("Login successfully", "You've been logged in!")
             })
             .store(in: &cancellables)
+    }
+}
+
+extension LoginViewModel {
+
+    private func validateFields() -> Bool {
+        isEmailValid = validator.validate(email: email)
+        isPasswordValid = validator.validate(password: password)
+        return isEmailValid && isPasswordValid
     }
 }

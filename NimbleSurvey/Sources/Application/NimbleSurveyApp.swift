@@ -9,15 +9,15 @@ import Login
 import Splash
 import Styleguide
 import SurveyClient
-import SurveyClientType
 import SwiftUI
+import Validator
 
 @main
 struct NimbleSurveyApp: App {
 
     @State private var finishLaunching = false
 
-    private var surveyClient: SurveyClientType = {
+    private var surveyClient: SurveyClient = {
         #if STAGING
         SurveyClient(
             environment: .test,
@@ -42,7 +42,12 @@ struct NimbleSurveyApp: App {
         WindowGroup {
             VStack {
                 if finishLaunching {
-                    LoginView(viewModel: LoginViewModel(surveyClient: surveyClient))
+                    LoginView(
+                        viewModel: LoginViewModel(
+                            surveyClient: surveyClient,
+                            validator: Validator()
+                        )
+                    )
                 } else {
                     SplashView()
                 }

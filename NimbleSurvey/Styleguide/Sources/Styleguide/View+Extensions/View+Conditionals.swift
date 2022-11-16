@@ -16,4 +16,8 @@ extension View {
 
         return self
     }
+
+    public func hiddenIf(_ condition: Bool) -> some View {
+        return self.opacity(condition ? 0.0 : 1.0)
+    }
 }
