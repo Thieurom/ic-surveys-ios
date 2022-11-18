@@ -10,6 +10,7 @@ import SwiftUI
 
 public struct HomeView: View {
 
+    @State private var isLoading = true
     @State private var selectedIndex = 0
     private var selectedTabIndex: Binding<Int> {
         .init(
@@ -28,6 +29,11 @@ public struct HomeView: View {
             background
                 .ignoresSafeArea()
 
+            HomePlaceholderView()
+                .padding(.horizontal, 20.0)
+                .padding(.bottom, 20.0)
+                .renderedIf(isLoading)
+
             VStack {
                 TabView(selection: selectedTabIndex) {
                     ForEach(0..<surveys.count, id: \.self) {
@@ -39,6 +45,7 @@ public struct HomeView: View {
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .ignoresSafeArea()
             }
+            .renderedIf(!isLoading)
 
             VStack {
                 header
@@ -57,6 +64,12 @@ public struct HomeView: View {
             }
             .padding(.horizontal, 20.0)
             .padding(.bottom, 20.0)
+            .renderedIf(!isLoading)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(2_500)) {
+                isLoading = false
+            }
         }
     }
 }
@@ -67,7 +80,7 @@ extension HomeView {
         OverlayView(
             colors: [
                 .black.opacity(1.0),
-                .black.opacity(0.5),
+                .black.opacity(0.8),
                 .black.opacity(1.0)
             ]
         )

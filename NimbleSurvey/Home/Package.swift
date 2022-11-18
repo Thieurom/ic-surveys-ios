@@ -13,13 +13,15 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "Styleguide", path: "../Styleguide")
+        .package(name: "Styleguide", path: "../Styleguide"),
+        .package(url: "https://github.com/mercari/ShimmerView", from: "0.5.1")
     ],
     targets: [
         .target(
             name: "Home",
             dependencies: [
-                .product(name: "Styleguide", package: "Styleguide")
+                .product(name: "Styleguide", package: "Styleguide"),
+                .product(name: "ShimmerView", package: "ShimmerView")
             ]
         ),
         .testTarget(
