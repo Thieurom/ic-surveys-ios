@@ -10,6 +10,16 @@ enum Module {
 
     case app(BuildConfiguration)
     case surveyClient
+    case login
+}
+
+extension Module {
+
+    static let testModules: [Module] = [
+        .surveyClient,
+        .login,
+        .app(.staging)
+    ]
 }
 
 extension Module {
@@ -18,6 +28,7 @@ extension Module {
         switch self {
         case .app: return "NimbleSurvey"
         case .surveyClient: return "SurveyClient"
+        case .login: return "Login"
         }
     }
 
@@ -28,7 +39,7 @@ extension Module {
             case .staging: return "\(name) Staging"
             case .production: return name
             }
-        case .surveyClient:
+        default:
             return name
         }
     }
@@ -37,16 +48,19 @@ extension Module {
         switch self {
         case .app:
             return ["\(name)Tests", "\(name)UITests"]
-        case .surveyClient:
+        default:
             return ["\(name)Tests"]
         }
     }
 
     var packagePath: String? {
-        guard case .surveyClient = self else {
+        switch self {
+        case .surveyClient:
+            return "./\(Project.name)/\(Module.surveyClient.name)"
+        case .login:
+            return "./\(Project.name)/\(Module.login.name)"
+        case .app:
             return nil
         }
-
-        return "./\(Project.name)/\(Module.surveyClient.name)"
     }
 }

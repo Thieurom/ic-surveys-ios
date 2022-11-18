@@ -13,7 +13,7 @@ class Fastfile: LaneFile {
     func testsLane() {
         desc("Build and tests")
 
-        for module in [Module.app(.staging), Module.surveyClient] {
+        for module in Module.testModules {
             test(module: module)
         }
     }
