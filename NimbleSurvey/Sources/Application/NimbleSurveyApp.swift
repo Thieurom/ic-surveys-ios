@@ -5,6 +5,7 @@
 //  Created by Doan Thieu on 27/09/2022.
 //
 
+import Home
 import Login
 import Splash
 import Styleguide

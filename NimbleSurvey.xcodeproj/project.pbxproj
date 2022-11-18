@@ -20,6 +20,7 @@
 		4D77547228E5588F00C933FC /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D77547128E5588F00C933FC /* ExampleTests.swift */; };
 		4D9F895428F3D15900C7185D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D9F895328F3D15900C7185D /* GoogleService-Info.plist */; };
 		4DFD126C29249B400075023C /* Validator in Frameworks */ = {isa = PBXBuildFile; productRef = 4DFD126B29249B400075023C /* Validator */; };
+		4DFD126F2924E5B20075023C /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = 4DFD126E2924E5B20075023C /* Home */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		4D77547128E5588F00C933FC /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		4D8DAF8F28F7B573005CB41F /* SurveyClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SurveyClient; path = NimbleSurvey/SurveyClient; sourceTree = "<group>"; };
 		4D9F895328F3D15900C7185D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DFD126D2924DF6C0075023C /* Home */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Home; path = NimbleSurvey/Home; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				4D298E5C2907DD7C00BEC5E8 /* Styleguide in Frameworks */,
 				4DFD126C29249B400075023C /* Validator in Frameworks */,
 				4D298E892912754500BEC5E8 /* Splash in Frameworks */,
+				4DFD126F2924E5B20075023C /* Home in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +143,7 @@
 		4D7753E328E3018A00C933FC = {
 			isa = PBXGroup;
 			children = (
+				4DFD126D2924DF6C0075023C /* Home */,
 				4D2F832C2924967700DD91E0 /* DataValidation */,
 				4D298E872912748200BEC5E8 /* Splash */,
 				4D298E5A2907D66E00BEC5E8 /* Styleguide */,
@@ -269,6 +273,7 @@
 				4D298E882912754500BEC5E8 /* Splash */,
 				4D298E8A2914FE7A00BEC5E8 /* SurveyClient */,
 				4DFD126B29249B400075023C /* Validator */,
+				4DFD126E2924E5B20075023C /* Home */,
 			);
 			productName = NimbleSurvey;
 			productReference = 4D7753EC28E3018A00C933FC /* NimbleSurvey.app */;
@@ -1078,6 +1083,10 @@
 		4DFD126B29249B400075023C /* Validator */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Validator;
+		};
+		4DFD126E2924E5B20075023C /* Home */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Home;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
