@@ -13,13 +13,15 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "Styleguide", path: "../Styleguide")
+        .package(name: "Styleguide", path: "../Styleguide"),
+        .package(name: "SurveyClient", path: "../SurveyClient")
     ],
     targets: [
         .target(
             name: "Login",
             dependencies: [
-                .product(name: "Styleguide", package: "Styleguide")
+                .product(name: "Styleguide", package: "Styleguide"),
+                .product(name: "SurveyClientType", package: "SurveyClient")
             ]
         ),
         .testTarget(

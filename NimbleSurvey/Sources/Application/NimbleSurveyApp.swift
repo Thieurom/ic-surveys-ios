@@ -8,6 +8,8 @@
 import Login
 import Splash
 import Styleguide
+import SurveyClient
+import SurveyClientType
 import SwiftUI
 
 @main
@@ -15,11 +17,32 @@ struct NimbleSurveyApp: App {
 
     @State private var finishLaunching = false
 
+    private var surveyClient: SurveyClientType = {
+        #if STAGING
+        SurveyClient(
+            environment: .test,
+            clientId: clientId,
+            clientSecret: clientSecret
+        )
+        #elseif PRODUCTION
+        SurveyClient(
+            environment: .live,
+            clientId: clientId,
+            clientSecret: clientSecret
+        )
+        #endif
+    }()
+
+    init() {
+        Styleguide.registerFonts()
+        UITextField.appearance().keyboardAppearance = .dark
+    }
+
     var body: some Scene {
         WindowGroup {
             VStack {
                 if finishLaunching {
-                    LoginView()
+                    LoginView(viewModel: LoginViewModel(surveyClient: surveyClient))
                 } else {
                     SplashView()
                 }
@@ -30,10 +53,5 @@ struct NimbleSurveyApp: App {
                 }
             }
         }
-    }
-
-    init() {
-        Styleguide.registerFonts()
-        UITextField.appearance().keyboardAppearance = .dark
     }
 }

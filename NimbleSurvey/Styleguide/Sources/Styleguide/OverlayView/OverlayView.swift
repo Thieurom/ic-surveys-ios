@@ -29,6 +29,7 @@ struct OverlayView_Previews: PreviewProvider {
 
     static var previews: some View {
         OverlayView()
+            .ignoresSafeArea()
     }
 }
 #endif
