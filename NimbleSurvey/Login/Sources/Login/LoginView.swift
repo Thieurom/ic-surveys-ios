@@ -16,12 +16,11 @@ public struct LoginView: View {
     @State private var logoScale = 1.0
     @State private var bottomPadding: CGFloat = .zero
     @State private var isShowingSpinner = false
-    @State private var isShowingLoginResult = false
-    @State private var loginResultTitle: String?
-    @State private var loginResultMessage: String?
+    @State private var isShowingLoginError = false
     @FocusState private var emailInFocus: Bool
     @FocusState private var passwordInFocus: Bool
     @ObservedObject private var viewModel: LoginViewModel
+    @EnvironmentObject var loginState: LoginState
 
     public init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -49,20 +48,16 @@ public struct LoginView: View {
             }
             .spinner(isPresented: $isShowingSpinner)
             .onReceive(viewModel.$isLoading) { isShowingSpinner = $0 }
-            .onReceive(viewModel.$loginResult.dropFirst()) {
-                isShowingLoginResult = true
-                loginResultTitle = $0?.title
-                loginResultMessage = $0?.description
+            .onReceive(viewModel.$isLoginSuccessfully.dropFirst()) {
+                loginState.isLoginSuccessfully = $0
+                isShowingLoginError = !$0
             }
             .alert(
-                loginResultTitle ?? "Login Result",
-                isPresented: $isShowingLoginResult,
-                presenting: loginResultMessage,
-                actions: { _ in },
-                message: { _ in
-                    if let loginResultMessage = loginResultMessage {
-                        Text(loginResultMessage)
-                    }
+                "Unable to login",
+                isPresented: $isShowingLoginError,
+                actions: {},
+                message: {
+                    Text("There's something wrong. Please try again!")
                 }
             )
         }

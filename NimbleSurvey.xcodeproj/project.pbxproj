@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D28933C292B1E9200B208A5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28933B292B1E9200B208A5 /* AppState.swift */; };
+		4D28933E292B1EB300B208A5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28933D292B1EB300B208A5 /* AppCoordinator.swift */; };
 		4D298E592907C24A00BEC5E8 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E582907C24A00BEC5E8 /* Login */; };
 		4D298E5C2907DD7C00BEC5E8 /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E5B2907DD7C00BEC5E8 /* Styleguide */; };
 		4D298E6D290A70AE00BEC5E8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */; };
@@ -45,6 +47,8 @@
 		4D27E51728F0159E003E72B8 /* DebugProduction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugProduction.xcconfig; sourceTree = "<group>"; };
 		4D27E51828F01BA8003E72B8 /* ReleaseStaging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseStaging.xcconfig; sourceTree = "<group>"; };
 		4D27E51928F01BB4003E72B8 /* ReleaseProduction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseProduction.xcconfig; sourceTree = "<group>"; };
+		4D28933B292B1E9200B208A5 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		4D28933D292B1EB300B208A5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4D298E562907BAAD00BEC5E8 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Login; path = NimbleSurvey/Login; sourceTree = "<group>"; };
 		4D298E5A2907D66E00BEC5E8 /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = NimbleSurvey/Styleguide; sourceTree = "<group>"; };
 		4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				4D7753EF28E3018A00C933FC /* NimbleSurveyApp.swift */,
+				4D28933D292B1EB300B208A5 /* AppCoordinator.swift */,
+				4D28933B292B1E9200B208A5 /* AppState.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -415,6 +421,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D28933E292B1EB300B208A5 /* AppCoordinator.swift in Sources */,
+				4D28933C292B1E9200B208A5 /* AppState.swift in Sources */,
 				4D7753F028E3018A00C933FC /* NimbleSurveyApp.swift in Sources */,
 				4D298E8D2919054D00BEC5E8 /* Secrets.swift in Sources */,
 			);

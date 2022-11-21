@@ -10,14 +10,16 @@ import SwiftUI
 
 public struct SplashView: View {
 
-    @State private var showingLogo = false
+    @State private var logoOpacity = 0.0
+    @EnvironmentObject var splashState: SplashState
+    private let animationDuration = 1.0  // second
 
     public init() {}
 
     public var body: some View {
         Asset.Images.logo.swiftUIImage
             .frame(maxWidth: .infinity)
-            .opacity(showingLogo ? 1.0 : 0.0)
+            .opacity(logoOpacity)
             .background(
                 Asset.Images.background.swiftUIImage
                     .resizable()
@@ -26,8 +28,11 @@ public struct SplashView: View {
                     .ignoresSafeArea()
             )
             .onAppear {
-                withAnimation(.easeIn(duration: 1.0).delay(1.0)) {
-                    showingLogo = true
+                withAnimation(.easeIn(duration: animationDuration).delay(1.0)) {
+                    logoOpacity = 1.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(Int(animationDuration))) {
+                        splashState.isFinishLoading = true
+                    }
                 }
             }
     }
