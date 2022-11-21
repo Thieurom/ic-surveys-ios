@@ -5,6 +5,7 @@
 //  Created by Doan Thieu on 27/09/2022.
 //
 
+import Home
 import Login
 import Splash
 import Styleguide
@@ -15,7 +16,7 @@ import Validator
 @main
 struct NimbleSurveyApp: App {
 
-    @State private var finishLaunching = false
+    @StateObject var appCoordinator = AppCoordinator()
 
     private var surveyClient: SurveyClient = {
         #if STAGING
@@ -41,20 +42,20 @@ struct NimbleSurveyApp: App {
     var body: some Scene {
         WindowGroup {
             VStack {
-                if finishLaunching {
+                switch appCoordinator.state {
+                case let .splash(splashState):
+                    SplashView()
+                        .environmentObject(splashState)
+                case let .login(loginState):
                     LoginView(
                         viewModel: LoginViewModel(
                             surveyClient: surveyClient,
                             validator: Validator()
                         )
                     )
-                } else {
-                    SplashView()
-                }
-            }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                    finishLaunching = true
+                    .environmentObject(loginState)
+                case .home:
+                    HomeView()
                 }
             }
         }

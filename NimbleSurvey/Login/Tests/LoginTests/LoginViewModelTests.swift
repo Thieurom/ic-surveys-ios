@@ -30,7 +30,7 @@ final class LoginViewModelTests: XCTestCase {
     func test_InitialValues() {
         XCTAssertFalse(viewModel.isLoginEnabled)
         XCTAssertFalse(viewModel.isLoading)
-        XCTAssertNil(viewModel.loginResult)
+        XCTAssertFalse(viewModel.isLoginSuccessfully)
     }
 
     func testLogin_WhenValidatorReturnFalse() {
@@ -41,20 +41,20 @@ final class LoginViewModelTests: XCTestCase {
         var isPasswordValid = [Bool]()
         var isLoginEnabled = [Bool]()
         var isLoading = [Bool]()
-        var loginResult = [(title: String, description: String)]()
+        var isLoginSuccessfully = [Bool]()
 
         let isEmailValidExpectation = expectation(description: "isEmailValid")
         let isPasswordValidExpectation = expectation(description: "isPasswordValid")
         let isLoginEnabledExpectation = expectation(description: "isLoginEnabled")
         let isLoadingExpectation = expectation(description: "isLoading")
-        let loginResultExpectation = expectation(description: "loginResult")
+        let isLoginSuccessfullyExpectation = expectation(description: "isLoginSuccessfully")
 
         let expectations = [
             isEmailValidExpectation,
             isPasswordValidExpectation,
             isLoginEnabledExpectation,
             isLoadingExpectation,
-            loginResultExpectation
+            isLoginSuccessfullyExpectation
         ]
 
         viewModel.$isEmailValid
@@ -93,12 +93,12 @@ final class LoginViewModelTests: XCTestCase {
             })
             .store(in: &cancellables)
 
-        viewModel.$loginResult
+        viewModel.$isLoginSuccessfully
             .collect(1)
             .first()
             .sink(receiveValue: {
-                loginResult = $0.compactMap { $0 }
-                loginResultExpectation.fulfill()
+                isLoginSuccessfully = $0
+                isLoginSuccessfullyExpectation.fulfill()
             })
             .store(in: &cancellables)
 
@@ -112,8 +112,7 @@ final class LoginViewModelTests: XCTestCase {
         XCTAssertEqual(isPasswordValid, [true, false])
         XCTAssertEqual(isLoading, [false])
         XCTAssertEqual(isLoginEnabled, [false, false])
-        XCTAssertTrue(loginResult.map(\.title).isEmpty)
-        XCTAssertTrue(loginResult.map(\.description).isEmpty)
+        XCTAssertEqual(isLoginSuccessfully, [false])
     }
 
     func testLogin_WhenValidatorReturnTrueAndSurveyClientReturnFail() {
@@ -126,20 +125,20 @@ final class LoginViewModelTests: XCTestCase {
         var isPasswordValid = [Bool]()
         var isLoginEnabled = [Bool]()
         var isLoading = [Bool]()
-        var loginResult = [(title: String, description: String)]()
+        var isLoginSuccessfully = [Bool]()
 
         let isEmailValidExpectation = expectation(description: "isEmailValid")
         let isPasswordValidExpectation = expectation(description: "isPasswordValid")
         let isLoginEnabledExpectation = expectation(description: "isLoginEnabled")
         let isLoadingExpectation = expectation(description: "isLoading")
-        let loginResultExpectation = expectation(description: "loginResult")
+        let isLoginSuccessfullyExpectation = expectation(description: "isLoginSuccessfully")
 
         let expectations = [
             isEmailValidExpectation,
             isPasswordValidExpectation,
             isLoginEnabledExpectation,
             isLoadingExpectation,
-            loginResultExpectation
+            isLoginSuccessfullyExpectation
         ]
 
         viewModel.$isEmailValid
@@ -178,12 +177,12 @@ final class LoginViewModelTests: XCTestCase {
             })
             .store(in: &cancellables)
 
-        viewModel.$loginResult
+        viewModel.$isLoginSuccessfully
             .collect(2)
             .first()
             .sink(receiveValue: {
-                loginResult = $0.compactMap { $0 }
-                loginResultExpectation.fulfill()
+                isLoginSuccessfully = $0
+                isLoginSuccessfullyExpectation.fulfill()
             })
             .store(in: &cancellables)
 
@@ -197,8 +196,7 @@ final class LoginViewModelTests: XCTestCase {
         XCTAssertEqual(isPasswordValid, [true, true])
         XCTAssertEqual(isLoading, [false, true, false])
         XCTAssertEqual(isLoginEnabled, [false, false, true])
-        XCTAssertEqual(loginResult.map(\.title), ["Unable to login"])
-        XCTAssertEqual(loginResult.map(\.description), ["There's something wrong. Please try again!"])
+        XCTAssertEqual(isLoginSuccessfully, [false, false])
     }
 
     func testLogin_WhenValidatorReturnTrueAndSurveyClientReturnSuccess() {
@@ -212,20 +210,20 @@ final class LoginViewModelTests: XCTestCase {
         var isPasswordValid = [Bool]()
         var isLoginEnabled = [Bool]()
         var isLoading = [Bool]()
-        var loginResult = [(title: String, description: String)]()
+        var isLoginSuccessfully = [Bool]()
 
         let isEmailValidExpectation = expectation(description: "isEmailValid")
         let isPasswordValidExpectation = expectation(description: "isPasswordValid")
         let isLoginEnabledExpectation = expectation(description: "isLoginEnabled")
         let isLoadingExpectation = expectation(description: "isLoading")
-        let loginResultExpectation = expectation(description: "loginResult")
+        let isLoginSuccessfullyExpectation = expectation(description: "isLoginSuccessfully")
 
         let expectations = [
             isEmailValidExpectation,
             isPasswordValidExpectation,
             isLoginEnabledExpectation,
             isLoadingExpectation,
-            loginResultExpectation
+            isLoginSuccessfullyExpectation
         ]
 
         viewModel.$isEmailValid
@@ -264,12 +262,12 @@ final class LoginViewModelTests: XCTestCase {
             })
             .store(in: &cancellables)
 
-        viewModel.$loginResult
+        viewModel.$isLoginSuccessfully
             .collect(2)
             .first()
             .sink(receiveValue: {
-                loginResult = $0.compactMap { $0 }
-                loginResultExpectation.fulfill()
+                isLoginSuccessfully = $0
+                isLoginSuccessfullyExpectation.fulfill()
             })
             .store(in: &cancellables)
 
@@ -283,6 +281,6 @@ final class LoginViewModelTests: XCTestCase {
         XCTAssertEqual(isPasswordValid, [true, true])
         XCTAssertEqual(isLoading, [false, true, false])
         XCTAssertEqual(isLoginEnabled, [false, false, true])
-        XCTAssertEqual(loginResult.map(\.title), ["Login successfully"])
-        XCTAssertEqual(loginResult.map(\.description), ["You've been logged in!"])    }
+        XCTAssertEqual(isLoginSuccessfully, [false, true])
+    }
 }

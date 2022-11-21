@@ -9,6 +9,15 @@
           "revision": "d3666e6d2cbbbdaa709de61142d21d90626d67cd",
           "version": "1.1.1"
         }
+      },
+      {
+        "package": "ShimmerView",
+        "repositoryURL": "https://github.com/mercari/ShimmerView",
+        "state": {
+          "branch": null,
+          "revision": "f34a268db28b49231ea236dafcd976507cef9dfd",
+          "version": "0.5.1"
+        }
       }
     ]
   },

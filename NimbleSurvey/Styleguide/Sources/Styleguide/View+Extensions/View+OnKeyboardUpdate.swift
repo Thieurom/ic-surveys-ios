@@ -9,6 +9,9 @@ import SwiftUI
 
 struct KeyboardObserver: ViewModifier {
 
+    private let keyboardWillShow = NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)
+    private let keyboardWillHide = NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
+
     private let action: (CGFloat) -> Void
 
     init(action: @escaping (CGFloat) -> Void) {
@@ -18,23 +21,14 @@ struct KeyboardObserver: ViewModifier {
     func body(content: Content) -> some View {
         GeometryReader { reader in
             content
-                .onAppear {
-                    NotificationCenter.default.addObserver(
-                        forName: UIResponder.keyboardWillShowNotification,
-                        object: nil,
-                        queue: .main
-                    ) { notification in
-                        let keyboardFrameKey = UIResponder.keyboardFrameEndUserInfoKey
-                        guard let keyboardFrame = notification.userInfo?[keyboardFrameKey] as? CGRect else { return }
+                .onReceive(keyboardWillShow) { notification in
+                    let keyboardFrameKey = UIResponder.keyboardFrameEndUserInfoKey
+                    guard let keyboardFrame = notification.userInfo?[keyboardFrameKey] as? CGRect else { return }
 
-                        action(keyboardFrame.height - reader.safeAreaInsets.bottom)
-                    }
-
-                    NotificationCenter.default.addObserver(
-                        forName: UIResponder.keyboardWillHideNotification,
-                        object: nil,
-                        queue: .main
-                    ) { _ in action(0) }
+                    action(keyboardFrame.height - reader.safeAreaInsets.bottom)
+                }
+                .onReceive(keyboardWillHide) { _ in
+                    action(0)
                 }
         }
     }
