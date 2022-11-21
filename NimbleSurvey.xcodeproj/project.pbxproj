@@ -49,6 +49,8 @@
 		4D27E51928F01BB4003E72B8 /* ReleaseProduction.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseProduction.xcconfig; sourceTree = "<group>"; };
 		4D28933B292B1E9200B208A5 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4D28933D292B1EB300B208A5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4D28933F292B5E7D00B208A5 /* Survey */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Survey; path = NimbleSurvey/Survey; sourceTree = "<group>"; };
+		4D289340292B613000B208A5 /* SharedModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SharedModels; path = NimbleSurvey/SharedModels; sourceTree = "<group>"; };
 		4D298E562907BAAD00BEC5E8 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Login; path = NimbleSurvey/Login; sourceTree = "<group>"; };
 		4D298E5A2907D66E00BEC5E8 /* Styleguide */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Styleguide; path = NimbleSurvey/Styleguide; sourceTree = "<group>"; };
 		4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -147,6 +149,8 @@
 		4D7753E328E3018A00C933FC = {
 			isa = PBXGroup;
 			children = (
+				4D289340292B613000B208A5 /* SharedModels */,
+				4D28933F292B5E7D00B208A5 /* Survey */,
 				4DFD126D2924DF6C0075023C /* Home */,
 				4D2F832C2924967700DD91E0 /* DataValidation */,
 				4D298E872912748200BEC5E8 /* Splash */,

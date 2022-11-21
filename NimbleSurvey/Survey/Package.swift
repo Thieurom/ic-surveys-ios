@@ -4,31 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "Home",
+    name: "Survey",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "Home",
-            targets: ["Home"]
+            name: "Survey",
+            targets: ["Survey"]
         )
     ],
     dependencies: [
         .package(name: "Styleguide", path: "../Styleguide"),
-        .package(name: "SharedModels", path: "../SharedModels"),
-        .package(url: "https://github.com/mercari/ShimmerView", from: "0.5.1")
+        .package(name: "SharedModels", path: "../SharedModels")
     ],
     targets: [
         .target(
-            name: "Home",
+            name: "Survey",
             dependencies: [
                 .product(name: "Styleguide", package: "Styleguide"),
-                .product(name: "SharedModels", package: "SharedModels"),
-                .product(name: "ShimmerView", package: "ShimmerView")
+                .product(name: "SharedModels", package: "SharedModels")
             ]
         ),
         .testTarget(
-            name: "HomeTests",
-            dependencies: ["Home"]
+            name: "SurveyTests",
+            dependencies: ["Survey"]
         )
     ]
 )

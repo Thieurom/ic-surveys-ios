@@ -141,12 +141,9 @@ extension LoginView {
             viewModel.login()
         } label: {
             Text("Log in")
-                .adaptiveFont(.neuzeitHeavy, size: 17.0)
-                .frame(maxWidth: .infinity, maxHeight: 56.0)
-                .background(viewModel.isLoginEnabled ? Color.white : Color.gray)
-                .foregroundColor(.black)
-                .cornerRadius(12.0)
+                .frame(maxWidth: .infinity)
         }
+        .buttonStyle(PrimaryButtonStyle())
         .disabled(!viewModel.isLoginEnabled)
     }
 
