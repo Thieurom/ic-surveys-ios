@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D28933C292B1E9200B208A5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28933B292B1E9200B208A5 /* AppState.swift */; };
 		4D28933E292B1EB300B208A5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28933D292B1EB300B208A5 /* AppCoordinator.swift */; };
+		4D289342292F559000B208A5 /* Survey in Frameworks */ = {isa = PBXBuildFile; productRef = 4D289341292F559000B208A5 /* Survey */; };
 		4D298E592907C24A00BEC5E8 /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E582907C24A00BEC5E8 /* Login */; };
 		4D298E5C2907DD7C00BEC5E8 /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = 4D298E5B2907DD7C00BEC5E8 /* Styleguide */; };
 		4D298E6D290A70AE00BEC5E8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D298E6B290A70AD00BEC5E8 /* Colors.xcassets */; };
@@ -78,6 +79,7 @@
 				4D298E592907C24A00BEC5E8 /* Login in Frameworks */,
 				4D298E8B2914FE7A00BEC5E8 /* SurveyClient in Frameworks */,
 				4D298E5C2907DD7C00BEC5E8 /* Styleguide in Frameworks */,
+				4D289342292F559000B208A5 /* Survey in Frameworks */,
 				4DFD126C29249B400075023C /* Validator in Frameworks */,
 				4D298E892912754500BEC5E8 /* Splash in Frameworks */,
 				4DFD126F2924E5B20075023C /* Home in Frameworks */,
@@ -284,6 +286,7 @@
 				4D298E8A2914FE7A00BEC5E8 /* SurveyClient */,
 				4DFD126B29249B400075023C /* Validator */,
 				4DFD126E2924E5B20075023C /* Home */,
+				4D289341292F559000B208A5 /* Survey */,
 			);
 			productName = NimbleSurvey;
 			productReference = 4D7753EC28E3018A00C933FC /* NimbleSurvey.app */;
@@ -1076,6 +1079,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D289341292F559000B208A5 /* Survey */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Survey;
+		};
 		4D298E582907C24A00BEC5E8 /* Login */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Login;

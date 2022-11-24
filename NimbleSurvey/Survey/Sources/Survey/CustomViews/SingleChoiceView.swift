@@ -18,7 +18,6 @@ struct SingleChoiceView: View {
     }
 }
 
-
 #if DEBUG
 struct SingleChoiceView_Previews: PreviewProvider {
 
