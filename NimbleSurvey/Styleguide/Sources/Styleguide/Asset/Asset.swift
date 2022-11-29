@@ -28,7 +28,10 @@ public enum Asset {
     public static let avatar = ImageAsset(name: "avatar")
     public static let background = ImageAsset(name: "background")
     public static let chevronRight = ImageAsset(name: "chevron-right")
+    public static let close = ImageAsset(name: "close")
     public static let logo = ImageAsset(name: "logo")
+    public static let radioChecked = ImageAsset(name: "radio-checked")
+    public static let radioUnchecked = ImageAsset(name: "radio-unchecked")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

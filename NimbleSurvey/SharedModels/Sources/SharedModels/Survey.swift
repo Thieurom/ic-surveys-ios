@@ -1,22 +1,28 @@
 //
 //  Survey.swift
-//  Home
+//  SharedModels
 //
-//  Created by Doan Thieu on 17/11/2022.
+//  Created by Doan Thieu on 22/11/2022.
 //
 
 import Foundation
 
-struct Survey: Equatable {
+public struct Survey: Equatable {
 
-    let title: String
-    let description: String
-    let coverImageURL: URL?
+    public let title: String
+    public let description: String
+    public let coverImageURL: URL?
+
+    public init(title: String, description: String, coverImageURL: URL? = nil) {
+        self.title = title
+        self.description = description
+        self.coverImageURL = coverImageURL
+    }
 }
 
 extension Survey {
 
-    static let sampleData: [Survey] = [
+    public static let sampleData: [Survey] = [
         .init(
             title: "Working from home Check-In",
             description: "We would like to know how you feel about our work from home",

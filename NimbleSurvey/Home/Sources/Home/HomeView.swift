@@ -5,6 +5,7 @@
 //  Created by Doan Thieu on 16/11/2022.
 //
 
+import SharedModels
 import Styleguide
 import SwiftUI
 
